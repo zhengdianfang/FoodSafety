@@ -19,6 +19,7 @@ class FoodSafetyApplication: Application() {
         if (BuildConfig.DEBUG) {
             ARouter.openDebug()
             ARouter.openLog()
+            
         }
         ARouter.init(this)
     }

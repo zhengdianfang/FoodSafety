@@ -34,3 +34,8 @@
 -keepnames class * {
     @com.alibaba.android.arouter.facade.annotation.Autowired <fields>;
 }
+
+#KotlinX
+-keepclassmembernames class kotlinx.** {
+    volatile <fields>;
+}

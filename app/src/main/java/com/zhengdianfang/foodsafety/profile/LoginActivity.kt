@@ -1,8 +1,8 @@
-package com.zhengdianfang.foodsafety.login
+package com.zhengdianfang.foodsafety.profile
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.zhengdianfang.foodsafety.login.fragments.LoginFragment
+import com.zhengdianfang.foodsafety.profile.fragments.LoginFragment
 import com.zhengdianfang.miracleframework.BaseActivity
 
 @Route(path = "/login/index")

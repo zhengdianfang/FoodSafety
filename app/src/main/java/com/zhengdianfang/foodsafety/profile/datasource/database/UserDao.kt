@@ -1,4 +1,4 @@
-package com.zhengdianfang.foodsafety.profile.datasource
+package com.zhengdianfang.foodsafety.profile.datasource.database
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert

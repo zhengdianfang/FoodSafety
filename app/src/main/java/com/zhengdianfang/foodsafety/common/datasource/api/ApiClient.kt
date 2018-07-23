@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
     companion object {
-        val CLIENT by lazy {
+        val CLIENT: Retrofit by lazy {
             Retrofit.Builder()
                     .baseUrl("http://4f2bb68a-915a-493e-8fa1-d9e89195faec.mock.pstmn.io")
                     .addConverterFactory(GsonConverterFactory.create())

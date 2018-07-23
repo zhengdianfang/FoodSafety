@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.content.Context
 import com.zhengdianfang.foodsafety.common.model.User
+import com.zhengdianfang.foodsafety.profile.dagger.DaggerLoginViewModelComponent
 import com.zhengdianfang.foodsafety.profile.repository.UserRepository
 import javax.inject.Inject
 
@@ -19,8 +20,8 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(context: Context, username: String, password: String) {
-        userRepository.login(context, username, password, {user ->
+        userRepository.login(username, password) { user ->
             this.userLiveData.postValue(user)
-        })
+        }
     }
 }

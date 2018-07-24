@@ -26,7 +26,7 @@ class LoginFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         loginButton.setOnClickListener {
-           viewModel.login(it.context, "zdf", "111111")
+           viewModel.login("zdf", "111111")
         }
 
         viewModel.userLiveData.observeForever { loginUser ->

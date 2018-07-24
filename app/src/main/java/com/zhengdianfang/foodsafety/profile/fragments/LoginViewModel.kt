@@ -2,10 +2,11 @@ package com.zhengdianfang.foodsafety.profile.fragments
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.content.Context
 import com.zhengdianfang.foodsafety.common.model.User
 import com.zhengdianfang.foodsafety.profile.dagger.DaggerLoginViewModelComponent
 import com.zhengdianfang.foodsafety.profile.repository.UserRepository
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import javax.inject.Inject
 
 class LoginViewModel : ViewModel() {
@@ -19,9 +20,12 @@ class LoginViewModel : ViewModel() {
         DaggerLoginViewModelComponent.create().inject(this)
     }
 
-    fun login(context: Context, username: String, password: String) {
-        userRepository.login(username, password) { user ->
-            this.userLiveData.postValue(user)
+    fun login(username: String, password: String) {
+        doAsync {
+            val user = userRepository.login(username, password)
+            uiThread {
+                userLiveData.postValue(user)
+            }
         }
     }
 }

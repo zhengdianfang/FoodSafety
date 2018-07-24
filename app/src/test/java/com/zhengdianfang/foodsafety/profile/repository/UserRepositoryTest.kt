@@ -16,6 +16,7 @@ import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.CountDownLatch
 
 @RunWith(MockitoJUnitRunner::class)
 class UserRepositoryTest {
@@ -43,11 +44,9 @@ class UserRepositoryTest {
     fun testLogin() {
         mockServer.enqueue(MockResponse().setResponseCode(200).setBody("{\"id\": \"1\", \"username\": \"zdf\", \"nickname\": \"xx\"}"))
         `when`(userDao.getUser(1)).thenReturn(User(1, "zdf", "xx"))
-        this.userRepository.login("zdf", "111111") { user ->
-            assertNotNull(user)
-            assertEquals(2, user?.id)
-            assertEquals("zdf111", user?.username)
-        }
-        Thread.sleep(50000)
+        val user = this.userRepository.login("zdf", "111111")
+        assertNotNull(user)
+        assertEquals(1, user?.id)
+        assertEquals("zdf", user?.username)
     }
 }

@@ -2,4 +2,13 @@
     <string name="app_name">FoodSafety</string>
     <string name="title_food_safety_search">Module Title</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="account_label">账号</string>
+    <string name="email_hint">请输入注册邮箱</string>
+    <string name="sms_code_label">验证码</string>
+    <string name="sms_code_hint">请输入验证码</string>
+    <string name="set_password_label">设置密码</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="confirm_password_hint">重复确认密码</string>
+    <string name="confirm_password_label">确认密码</string>
+    <string name="confirm_reset_password_button">确认重置密码</string>
 </resources>

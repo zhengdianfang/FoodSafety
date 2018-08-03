@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppEditText">
+       <attr name="label_text" format="reference" />
+        <attr name="edit_hint" format="reference" />
+    </declare-styleable>
+</resources>

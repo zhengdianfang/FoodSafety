@@ -12,4 +12,5 @@
     <drawable name="btn_normal_color">#34bfbd</drawable>
     <drawable name="btn_active_color">#2f97be</drawable>
     <drawable name="window_background">#ffffff</drawable>
+    <drawable name="transparent">#00000000</drawable>
 </resources>

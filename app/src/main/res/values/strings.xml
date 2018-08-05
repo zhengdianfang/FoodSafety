@@ -14,4 +14,5 @@
     <string name="reset_password_success_toast">重置密码成功</string>
     <string name="email_format_toast">请输入正确的邮箱格式</string>
     <string name="password_eqaul_toast">密码不一致</string>
+    <string name="find_password_title">找回密码</string>
 </resources>

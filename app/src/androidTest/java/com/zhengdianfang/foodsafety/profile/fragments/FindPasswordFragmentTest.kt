@@ -45,6 +45,7 @@ class FindPasswordFragmentTest {
     @Test
     fun test_find_password_fragment_ui() {
 
+        onView(withText(R.string.find_password_title)).check(matches(isDisplayed()))
         onView(withText(R.string.confirm_reset_password_button)).check(matches(isDisplayed()))
         onView(withHint(R.string.email_hint)).check(matches(isDisplayed()))
         onView(withHint(R.string.sms_code_hint)).check(matches(isDisplayed()))

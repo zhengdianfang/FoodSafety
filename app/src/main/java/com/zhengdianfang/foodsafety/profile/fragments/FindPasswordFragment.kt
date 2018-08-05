@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.find_password_fragment.*
+import kotlinx.android.synthetic.main.navigation_bar_layout.*
 import org.jetbrains.anko.support.v4.toast
 
 class FindPasswordFragment : BaseFragment() {
@@ -31,8 +32,10 @@ class FindPasswordFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FindPasswordViewModel::class.java)
 
+        navigationTitleView.setText(R.string.find_password_title)
+
+        viewModel = ViewModelProviders.of(this).get(FindPasswordViewModel::class.java)
 
         viewModel.resetPasswordSucceed.observe(this, Observer<Boolean> { isSucceed ->
            if (isSucceed!!) {

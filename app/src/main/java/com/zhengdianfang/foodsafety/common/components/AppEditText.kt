@@ -65,7 +65,7 @@ class AppEditText : EditText {
         val marginEnd = resources.getDimension(R.dimen.label_margin_end).toInt()
         val bitmapWidth = rect.width() + marginEnd + labelTextView.paddingLeft
         val labelViewBitmap = Image.loadBitmapFromView(labelTextView, bitmapWidth, rect.height())
-        val top = (resources.getDimension(R.dimen.edit_text_height) - rect.height()) / 2 + resources.getDimension(R.dimen.label_margin_top_offset)
+        val top = (resources.getDimension(R.dimen.edit_text_height) - rect.height()) / 2 //+ resources.getDimension(R.dimen.label_margin_top_offset)
         canvas?.drawBitmap(labelViewBitmap, labelTextView.paddingLeft.toFloat(), top, labelPaint)
     }
 }

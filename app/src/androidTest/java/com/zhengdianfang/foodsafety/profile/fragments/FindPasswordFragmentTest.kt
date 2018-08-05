@@ -33,7 +33,7 @@ class FindPasswordFragmentTest {
         mockLoginActivity.activity
                 .supportFragmentManager
                 .beginTransaction()
-                .add(android.R.id.content, findPasswordFragment)
+                .replace(android.R.id.content, findPasswordFragment)
                 .commit()
     }
 
@@ -51,6 +51,7 @@ class FindPasswordFragmentTest {
         onView(withHint(R.string.sms_code_hint)).check(matches(isDisplayed()))
         onView(withHint(R.string.password_hint)).check(matches(isDisplayed()))
         onView(withHint(R.string.confirm_password_hint)).check(matches(isDisplayed()))
+        onView(withId(R.id.resetPasswordButton)).check(matches(isDisplayed()))
     }
 
     @Test

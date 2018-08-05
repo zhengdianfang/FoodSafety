@@ -3,6 +3,8 @@ package com.zhengdianfang.foodsafety.profile.fragments
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
+import android.support.annotation.VisibleForTesting
+import android.widget.Toast
 import com.zhengdianfang.foodsafety.FoodSafetyApplication
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.miracleframework.utils.StringExtension

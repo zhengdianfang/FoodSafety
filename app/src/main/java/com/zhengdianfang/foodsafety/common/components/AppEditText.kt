@@ -53,7 +53,9 @@ class AppEditText : EditText {
         labelText = resources.getString(labelTextResId)
         labelTextView.text = labelText
         val marginEnd = resources.getDimension(R.dimen.label_margin_end).toInt()
-        setPadding(getLabelRect().width() + marginEnd, 0, 0, 0)
+        labelTextView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
+        val newPaddingLeft = getLabelRect().width() + marginEnd + paddingLeft
+        setPadding(newPaddingLeft, 0, 0, 0)
         styledAttributes.recycle()
     }
 
@@ -61,8 +63,9 @@ class AppEditText : EditText {
         super.onDraw(canvas)
         val rect = getLabelRect()
         val marginEnd = resources.getDimension(R.dimen.label_margin_end).toInt()
-        val labelViewBitmap = Image.loadBitmapFromView(labelTextView, rect.width() + marginEnd, rect.height())
+        val bitmapWidth = rect.width() + marginEnd + labelTextView.paddingLeft
+        val labelViewBitmap = Image.loadBitmapFromView(labelTextView, bitmapWidth, rect.height())
         val top = (resources.getDimension(R.dimen.edit_text_height) - rect.height()) / 2 + resources.getDimension(R.dimen.label_margin_top_offset)
-        canvas?.drawBitmap(labelViewBitmap, 0f, top, labelPaint)
+        canvas?.drawBitmap(labelViewBitmap, labelTextView.paddingLeft.toFloat(), top, labelPaint)
     }
 }

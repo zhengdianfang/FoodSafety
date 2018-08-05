@@ -1,11 +1,13 @@
 package com.zhengdianfang.foodsafety.profile.fragments
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zhengdianfang.foodsafety.R
+import com.zhengdianfang.foodsafety.common.model.User
 import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.login_fragment.*
 
@@ -29,9 +31,9 @@ class LoginFragment : BaseFragment() {
            viewModel.login("zdf", "111111")
         }
 
-        viewModel.userLiveData.observeForever { loginUser ->
+        viewModel.userLiveData.observe(this, Observer<User> { loginUser ->
          loginButton.text = loginUser?.username ?: "Login"
-        }
+        })
     }
 
 }

@@ -20,4 +20,10 @@ class UserRepository @Inject constructor(private val userApi: UserApi,
             }
         return user
     }
+
+
+    fun resetPassword(username: String, smsCode: String, newPassword: String,
+                      confirmPassword: String) {
+
+    }
 }

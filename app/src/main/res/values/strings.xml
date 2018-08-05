@@ -11,4 +11,7 @@
     <string name="confirm_password_hint">重复确认密码</string>
     <string name="confirm_password_label">确认密码</string>
     <string name="confirm_reset_password_button">确认重置密码</string>
+    <string name="reset_password_success_toast">重置密码成功</string>
+    <string name="email_format_toast">请输入正确的邮箱格式</string>
+    <string name="password_eqaul_toast">密码不一致</string>
 </resources>

@@ -11,6 +11,7 @@ import android.support.test.runner.AndroidJUnit4
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.common.matcher.ToastMatcher
 import com.zhengdianfang.foodsafety.profile.LoginActivity
+import com.zhengdianfang.foodsafety.profile.RegisterActivity
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
 import org.junit.Before
@@ -24,18 +25,7 @@ class EnterpriseRegisterFragmentTest {
 
     @JvmField
     @Rule
-    val mockLoginActivity = ActivityTestRule<LoginActivity>(LoginActivity::class.java)
-
-    private val registerFragment = RegisterFragment.newInstance()
-
-    @Before
-    fun setUp() {
-        mockLoginActivity.activity
-                .supportFragmentManager
-                .beginTransaction()
-                .replace(android.R.id.content, registerFragment)
-                .commit()
-    }
+    val mockRegisterActivity = ActivityTestRule<RegisterActivity>(RegisterActivity::class.java)
 
     @Test
     fun test_enterprise_register_fragment_ui() {
@@ -94,9 +84,12 @@ class EnterpriseRegisterFragmentTest {
 
     @After
     fun tearDown() {
-        val enterpriseRegisterFragment = registerFragment.findChildFragment(EnterpriseRegisterFragment::class.java)
-        if (enterpriseRegisterFragment != null) {
-            enterpriseRegisterFragment.toast?.cancel()
+        val registerFragment = mockRegisterActivity.activity.topFragment
+        if (registerFragment is RegisterFragment) {
+            val enterpriseRegisterFragment = registerFragment.findChildFragment(EnterpriseRegisterFragment::class.java)
+            if (enterpriseRegisterFragment != null) {
+                (enterpriseRegisterFragment as EnterpriseRegisterFragment).toast?.cancel()
+            }
         }
     }
 }

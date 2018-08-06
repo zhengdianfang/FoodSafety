@@ -55,7 +55,7 @@ class EnterpriseRegisterFragment: BaseFragment() {
         }
 
         existAccountView.setOnClickListener {
-            popTo(LoginFragment::class.java, false)
+            startWithPop(EnterprisePerfectInfoFragment.newInstance())
         }
     }
 }

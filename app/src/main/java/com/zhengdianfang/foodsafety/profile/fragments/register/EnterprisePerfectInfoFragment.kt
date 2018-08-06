@@ -9,6 +9,11 @@ import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.navigation_bar_layout.*
 
 class EnterprisePerfectInfoFragment: BaseFragment() {
+
+    companion object {
+        fun newInstance() = EnterpriseRegisterFragment()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.enterprise_perfect_info_fragment, container, false)
     }

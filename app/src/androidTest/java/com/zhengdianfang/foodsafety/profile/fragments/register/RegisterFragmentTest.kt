@@ -8,9 +8,8 @@ import android.support.test.filters.LargeTest
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.zhengdianfang.foodsafety.R
-import com.zhengdianfang.foodsafety.profile.LoginActivity
+import com.zhengdianfang.foodsafety.profile.RegisterActivity
 import org.hamcrest.CoreMatchers.not
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,16 +20,7 @@ class RegisterFragmentTest {
 
     @JvmField
     @Rule
-    val mockLoginActivity = ActivityTestRule<LoginActivity>(LoginActivity::class.java)
-
-    @Before
-    fun setUp() {
-        mockLoginActivity.activity
-                .supportFragmentManager
-                .beginTransaction()
-                .replace(android.R.id.content, RegisterFragment.newInstance())
-                .commit()
-    }
+    val mockRegisterActivity = ActivityTestRule<RegisterActivity>(RegisterActivity::class.java)
 
     @Test
     fun test_register_fragment_ui() {

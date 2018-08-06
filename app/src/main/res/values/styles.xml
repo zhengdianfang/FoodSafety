@@ -29,7 +29,7 @@
         <item name="android:background">@drawable/edittext_background_drawable</item>
         <item name="android:textSize">@dimen/middle</item>
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:height">@dimen/edit_text_height</item>
+        <item name="android:layout_height">@dimen/edit_text_height</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
     </style>
@@ -45,6 +45,10 @@
         <item name="android:textSize">@dimen/middle</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.TitleText.Dark">
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <!-- Button -->

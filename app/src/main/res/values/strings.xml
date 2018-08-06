@@ -29,4 +29,17 @@
     <string name="register_success_toast">注册成功</string>
     <string name="register_title">注册</string>
     <string name="perfect_info_title">完善信息</string>
+    <string name="enterprise_name_title">企业名称</string>
+    <string name="QS">QS</string>
+    <string name="CS">CS</string>
+    <string name="health_product_name">保健品</string>
+    <string name="enterprise_type_title">企业类型</string>
+    <string name="enterprise_name_hint">输入企业名称</string>
+    <string name="verify_text">验证</string>
+    <string name="credit_code_title">统一社会信用代码</string>
+    <string name="credit_code_hint">输入统一社会信用代码</string>
+    <string name="food_category_title">所属食品类别</string>
+    <string name="add_text">添加</string>
+    <string name="business_license_photo_title">营业执照照片</string>
+    <string name="submit_text">提交</string>
 </resources>

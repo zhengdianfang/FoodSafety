@@ -1,98 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    style="@style/AppTheme.GlobalWindowStyle"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    tools:context=".profile.fragments.LoginFragment">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/login"
-        style="@style/AppTheme.GlobalWindowStyle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        tools:context=".profile.fragments.LoginFragment">
-
-        <include
-            android:id="@+id/include"
-            layout="@layout/navigation_bar_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" />
+    <include
+        layout="@layout/navigation_bar_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <com.zhengdianfang.foodsafety.common.components.AppEditText
-            android:id="@+id/emailEdit"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/edit_text_height"
-            android:layout_marginTop="32dp"
-            android:inputType="textEmailAddress"
-            android:hint="@string/email_hint"
-            app:label_text="@string/account_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/navigationBar" />
+    <com.zhengdianfang.foodsafety.common.components.AppEditText
+        android:id="@+id/emailEdit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="32dp"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        app:label_text="@string/account_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigationBar" />
 
-        <com.zhengdianfang.foodsafety.common.components.AppEditText
-            android:id="@+id/passwordEdit"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/edit_text_height"
-            android:layout_marginTop="32dp"
-            android:inputType="textPassword"
-            android:hint="@string/password_hint"
-            app:label_text="@string/password_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEdit" />
+    <com.zhengdianfang.foodsafety.common.components.AppEditText
+        android:id="@+id/passwordEdit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="32dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:label_text="@string/password_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEdit" />
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/login_button_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/login_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
 
-        <TextView
-            android:id="@+id/registerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/just_register_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+    <TextView
+        android:id="@+id/registerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/just_register_text"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
-        <TextView
-            android:id="@+id/findPasswordView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/find_password_title"
-            app:layout_constraintBaseline_toBaselineOf="@+id/registerView"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/findPasswordView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_password_title"
+        app:layout_constraintBaseline_toBaselineOf="@+id/registerView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/thirdLoginTipView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="@string/third_login_title"
-            android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/findPasswordView" />
+    <TextView
+        android:id="@+id/thirdLoginTipView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/third_login_title"
+        app:layout_constraintBottom_toTopOf="@+id/weixinButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageButton
-            android:id="@+id/weixinButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/ic_weixin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thirdLoginTipView" />
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+    <ImageButton
+        android:id="@+id/weixinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/ic_weixin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

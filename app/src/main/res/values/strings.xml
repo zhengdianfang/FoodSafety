@@ -20,4 +20,13 @@
     <string name="third_login_title">使用社交账号一键登录</string>
     <string name="password_label">密码</string>
     <string name="login_success_toast">登录成功</string>
+    <string name="enterprise_user_text">企业用户</string>
+    <string name="person_user_text">个人用户</string>
+    <string name="email_or_phone_hint">手机号/邮箱</string>
+    <string name="next_step_text">下一步</string>
+    <string name="exist_account_just_login_text">已有账号， 立即登录</string>
+    <string name="email_or_phone_toast">请输入手机号或邮箱</string>
+    <string name="register_success_toast">注册成功</string>
+    <string name="register_title">注册</string>
+    <string name="perfect_info_title">完善信息</string>
 </resources>

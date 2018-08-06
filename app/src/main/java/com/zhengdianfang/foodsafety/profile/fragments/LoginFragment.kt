@@ -33,6 +33,16 @@ class LoginFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        initActions()
+
+    }
+
+    private fun initActions() {
+        viewModel.userLiveData.observe(this, Observer<User> { loginUser ->
+            if (null != loginUser) {
+                this.toast = toast(R.string.login_success_toast)
+            }
+        })
         loginButton.setOnClickListener {
             try {
                 viewModel.login(emailEdit.text.toString(), passwordEdit.text.toString())
@@ -41,11 +51,9 @@ class LoginFragment : BaseFragment() {
             }
         }
 
-        viewModel.userLiveData.observe(this, Observer<User> { loginUser ->
-            if (null != loginUser) {
-                this.toast = toast(R.string.login_success_toast)
-            }
-        })
+        findPasswordView.setOnClickListener {
+           start(FindPasswordFragment.newInstance())
+        }
     }
 
 }

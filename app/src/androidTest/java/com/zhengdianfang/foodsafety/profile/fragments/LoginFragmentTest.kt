@@ -66,8 +66,17 @@ class LoginFragmentTest {
         onView(withText(R.string.login_success_toast)).inRoot(ToastMatcher()).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun test_start_find_password_fragment_when_click_find_password_button() {
+        onView(withId(R.id.findPasswordView)).perform(click())
+        onView(withText(R.string.confirm_reset_password_button)).check(matches(isDisplayed()))
+    }
+
     @After
     fun tearDown() {
-        (mockLoginActivity.activity.topFragment as LoginFragment).toast?.cancel()
+        val topFragment = mockLoginActivity.activity.topFragment
+        if (topFragment is LoginFragment) {
+            topFragment.toast?.cancel()
+        }
     }
 }

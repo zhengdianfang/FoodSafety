@@ -3,14 +3,16 @@
     <color name="colorPrimary">#34bfbd</color>
     <color name="colorPrimaryDark">#2f97be</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="unActive">#f5f5f5</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#4e4e4e</color>
-    <color name="yellow">#f3b164</color>
+    <color name="colorUnActive">#f5f5f5</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#4e4e4e</color>
+    <color name="colorYellow">#f3b164</color>
+    <color name="colorUnActiveText">#989898</color>
 
 
-    <drawable name="btn_normal_color">#34bfbd</drawable>
-    <drawable name="btn_active_color">#2f97be</drawable>
-    <drawable name="window_background">#ffffff</drawable>
-    <drawable name="transparent">#00000000</drawable>
+    <drawable name="drawableBtnNormalColor">#34bfbd</drawable>
+    <drawable name="drawableBtnActiveColor">#2f97be</drawable>
+    <drawable name="drawableWindowBackground">#ffffff</drawable>
+    <drawable name="drawableTransparent">#00000000</drawable>
+    <drawable name="drawableUnActive">#f5f5f5</drawable>
 </resources>

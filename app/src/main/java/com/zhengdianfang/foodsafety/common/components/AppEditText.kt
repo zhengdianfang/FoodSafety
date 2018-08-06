@@ -15,7 +15,7 @@ class AppEditText : EditText {
 
     private val labelTextView by lazy {
         val textView = TextView(context)
-        textView.setTextColor(ContextCompat.getColor(context, R.color.black))
+        textView.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
         textView.gravity = gravity
         textView

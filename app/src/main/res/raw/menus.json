@@ -1,0 +1,393 @@
+[
+  {
+    "name": "创建企业",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "厂房新建流程",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "经营证件办理",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "SC许可办理",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "原辅料合规判定",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "原辅料合规咨询",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "产品合规研判",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "企业查询",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "公司竞品",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "生产企业",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "经营企业",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "设备商库",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "原料商库",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "规划设计",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "标签管理",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "标签资料",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "标签生成",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "标签列表",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "上传审核",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "审核列表",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "标签案例",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "标签检验报告",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "体系检查",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "现场检查",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "飞行检查",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "日常检查",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "婴配检查",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "抽检引导",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "抽检雷达",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "抽检公示",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "数据分析",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "抽检项目",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "检验数据比对",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "检验机构",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "复检机构",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "系统防控",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "预警信息",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "日常原辅料防控",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "生产过程防控",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "体系检查整改",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "不合格或问题原因分析",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "舆情应对",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "法规查询",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "食品关键法规查询",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "食品法规的更新与解读",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "食品抽检核查处置案例",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "食品抽检核查处置案例",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "职业举报人举报案例",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "执法检查案例",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "标准查询",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "食品安全标准查询",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "食品标准的更新与解读",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "食品抽检不合格项目与标准分析",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "企业标准",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "标准制定",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "专家审核",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "标准备案",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "食安学苑",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "食安学院",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  },
+  {
+    "name": "我的信息",
+    "icon": "",
+    "subMenuItems": [
+      {
+        "name": "基本信息",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "子账号管理",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的抽检",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的许可证",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的食品",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的原料商（食品生产企业显示）",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的经销商（食品生产企业显示）",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的产品供货商（经销商显示）",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的产品供货商（经销商显示）",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的法规",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的标准",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的标签",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的日常检查模板",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的检测数据",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的企业标准",
+        "icon": "",
+        "enable": true
+      },
+      {
+        "name": "我的课程",
+        "icon": "",
+        "enable": true
+      }
+    ]
+  }
+]

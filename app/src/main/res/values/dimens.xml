@@ -7,4 +7,5 @@
     <dimen name="label_margin_end">16dp</dimen>
     <dimen name="label_margin_top_offset">2dp</dimen>
     <dimen name="navigation_bar_height">64dp</dimen>
+    <dimen name="left_menu_fragment_width">296dp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 package com.zhengdianfang.foodsafety.main.fragments
 
 
+import android.widget.TextView
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.main.model.MenuItem
 import com.zhengdianfang.foodsafety.main.model.SubMenuItem
@@ -25,8 +26,20 @@ class LeftMenuRecyclerViewAdapter(data: List<MultiItemEntity>) :
     }
 
     private fun bindMainMenuDataToView(holder: BaseViewHolder, item: MenuItem) {
-        holder.setText(R.id.mainMenuTextView, item.name)
-        holder.itemView.setOnClickListener {
+        val mainMenuView = holder.itemView as TextView
+        mainMenuView.text = item.name
+        val context = holder.itemView.context
+        val leftDrawableId = context.resources.getIdentifier("ic_left_menu_${item.id}",
+                "drawable", context.packageName)
+
+        val rightDrawableId = if (item.expandable) R.drawable.ic_arrow_down else R.drawable.ic_arrow_down
+        mainMenuView.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                leftDrawableId,
+                0,
+                rightDrawableId,
+                0
+        )
+        mainMenuView.setOnClickListener {
             if (item.isExpanded) {
                 collapse(holder.adapterPosition)
             } else {
@@ -36,6 +49,17 @@ class LeftMenuRecyclerViewAdapter(data: List<MultiItemEntity>) :
     }
 
     private fun bindSubMenuDataToView(holder: BaseViewHolder, item: SubMenuItem) {
-        holder.setText(R.id.subMenuTextView, item.name)
+        val subMenuView = holder.itemView as TextView
+        subMenuView.text = item.name
+        val context = holder.itemView.context
+        val leftDrawableId = context.resources.getIdentifier("ic_left_menu_${item.parentMenuId}_${item.id}",
+                "drawable", context.packageName)
+        subMenuView.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                if(leftDrawableId <= 0) R.drawable.ic_left_menu_1_1 else leftDrawableId,
+                0,
+                R.drawable.ic_arrow_right,
+                0
+        )
+
     }
 }

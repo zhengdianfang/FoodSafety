@@ -8,8 +8,7 @@ import com.zhengdianfang.miracleframework.adapter.base.BaseMultiItemQuickAdapter
 import com.zhengdianfang.miracleframework.adapter.base.BaseViewHolder
 import com.zhengdianfang.miracleframework.adapter.base.entity.MultiItemEntity
 
-class LeftMenuRecyclerViewAdapter(
-        data: List<MultiItemEntity>?) :
+class LeftMenuRecyclerViewAdapter(data: List<MultiItemEntity>) :
         BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder>(data) {
 
 

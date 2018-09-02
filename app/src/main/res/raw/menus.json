@@ -6,36 +6,42 @@
     "subMenuItems": [
       {
         "id": 1,
+        "parentMenuId": 1,
         "name": "厂房新建流程",
         "icon": "",
         "enable": true
       },
       {
         "id": 2,
+        "parentMenuId": 1,
         "name": "经营证件办理",
         "icon": "",
         "enable": true
       },
       {
         "id": 3,
+        "parentMenuId": 1,
         "name": "SC许可办理",
         "icon": "",
         "enable": true
       },
       {
         "id": 4,
+        "parentMenuId": 1,
         "name": "原辅料合规判定",
         "icon": "",
         "enable": true
       },
       {
         "id": 5,
+        "parentMenuId": 1,
         "name": "原辅料合规咨询",
         "icon": "",
         "enable": true
       },
       {
         "id": 6,
+        "parentMenuId": 1,
         "name": "产品合规研判",
         "icon": "",
         "enable": true
@@ -49,36 +55,42 @@
     "subMenuItems": [
       {
         "id": 7,
+        "parentMenuId": 2,
         "name": "公司竞品",
         "icon": "",
         "enable": true
       },
       {
         "id": 8,
+        "parentMenuId": 2,
         "name": "生产企业",
         "icon": "",
         "enable": true
       },
       {
         "id": 9,
+        "parentMenuId": 2,
         "name": "经营企业",
         "icon": "",
         "enable": true
       },
       {
         "id": 10,
+        "parentMenuId": 2,
         "name": "设备商库",
         "icon": "",
         "enable": true
       },
       {
         "id": 11,
+        "parentMenuId": 2,
         "name": "原料商库",
         "icon": "",
         "enable": true
       },
       {
         "id": 12,
+        "parentMenuId": 2,
         "name": "规划设计",
         "icon": "",
         "enable": true
@@ -92,30 +104,35 @@
     "subMenuItems": [
       {
         "id": 13,
+        "parentMenuId": 3,
         "name": "标签资料",
         "icon": "",
         "enable": true
       },
       {
         "id": 14,
+        "parentMenuId": 3,
         "name": "标签生成",
         "icon": "",
         "enable": true
       },
       {
         "id": 15,
+        "parentMenuId": 3,
         "name": "标签列表",
         "icon": "",
         "enable": true
       },
       {
         "id": 16,
+        "parentMenuId": 3,
         "name": "上传审核",
         "icon": "",
         "enable": true
       },
       {
         "id": 17,
+        "parentMenuId": 3,
         "name": "审核列表",
         "icon": "",
         "enable": true
@@ -123,12 +140,14 @@
       {
         "id": 18,
         "name": "标签案例",
+        "parentMenuId": 3,
         "icon": "",
         "enable": true
       },
       {
         "id": 19,
         "name": "标签检验报告",
+        "parentMenuId": 3,
         "icon": "",
         "enable": true
       }
@@ -141,24 +160,28 @@
     "subMenuItems": [
       {
         "id": 20,
+        "parentMenuId": 4,
         "name": "现场检查",
         "icon": "",
         "enable": true
       },
       {
         "id": 21,
+        "parentMenuId": 4,
         "name": "飞行检查",
         "icon": "",
         "enable": true
       },
       {
         "id": 22,
+        "parentMenuId": 4,
         "name": "日常检查",
         "icon": "",
         "enable": true
       },
       {
         "id": 23,
+        "parentMenuId": 4,
         "name": "婴配检查",
         "icon": "",
         "enable": true
@@ -172,30 +195,35 @@
     "subMenuItems": [
       {
         "id": 24,
+        "parentMenuId": 5,
         "name": "抽检雷达",
         "icon": "",
         "enable": true
       },
       {
         "id": 25,
+        "parentMenuId": 5,
         "name": "抽检公示",
         "icon": "",
         "enable": true
       },
       {
         "id": 26,
+        "parentMenuId": 5,
         "name": "数据分析",
         "icon": "",
         "enable": true
       },
       {
         "id": 27,
+        "parentMenuId": 5,
         "name": "抽检项目",
         "icon": "",
         "enable": true
       },
       {
         "id": 28,
+        "parentMenuId": 5,
         "name": "检验数据比对",
         "icon": "",
         "enable": true
@@ -203,12 +231,14 @@
       {
         "id": 29,
         "name": "检验机构",
+        "parentMenuId": 5,
         "icon": "",
         "enable": true
       },
       {
         "id": 30,
         "name": "复检机构",
+        "parentMenuId": 5,
         "icon": "",
         "enable": true
       }
@@ -221,36 +251,42 @@
     "subMenuItems": [
       {
         "id": 31,
+        "parentMenuId": 6,
         "name": "预警信息",
         "icon": "",
         "enable": true
       },
       {
         "id": 32,
+        "parentMenuId": 6,
         "name": "日常原辅料防控",
         "icon": "",
         "enable": true
       },
       {
         "id": 33,
+        "parentMenuId": 6,
         "name": "生产过程防控",
         "icon": "",
         "enable": true
       },
       {
         "id": 34,
+        "parentMenuId": 6,
         "name": "体系检查整改",
         "icon": "",
         "enable": true
       },
       {
         "id": 35,
+        "parentMenuId": 6,
         "name": "不合格或问题原因分析",
         "icon": "",
         "enable": true
       },
       {
         "id": 36,
+        "parentMenuId": 6,
         "name": "舆情应对",
         "icon": "",
         "enable": true
@@ -264,36 +300,42 @@
     "subMenuItems": [
       {
         "id": 37,
+        "parentMenuId": 7,
         "name": "食品关键法规查询",
         "icon": "",
         "enable": true
       },
       {
         "id": 38,
+        "parentMenuId": 7,
         "name": "食品法规的更新与解读",
         "icon": "",
         "enable": true
       },
       {
         "id": 39,
+        "parentMenuId": 7,
         "name": "食品抽检核查处置案例",
         "icon": "",
         "enable": true
       },
       {
         "id": 40,
+        "parentMenuId": 7,
         "name": "食品抽检核查处置案例",
         "icon": "",
         "enable": true
       },
       {
         "id": 41,
+        "parentMenuId": 7,
         "name": "职业举报人举报案例",
         "icon": "",
         "enable": true
       },
       {
         "id": 42,
+        "parentMenuId": 7,
         "name": "执法检查案例",
         "icon": "",
         "enable": true
@@ -307,18 +349,21 @@
     "subMenuItems": [
       {
         "id": 43,
+        "parentMenuId": 8,
         "name": "食品安全标准查询",
         "icon": "",
         "enable": true
       },
       {
         "id": 44,
+        "parentMenuId": 8,
         "name": "食品标准的更新与解读",
         "icon": "",
         "enable": true
       },
       {
         "id": 45,
+        "parentMenuId": 8,
         "name": "食品抽检不合格项目与标准分析",
         "icon": "",
         "enable": true
@@ -332,18 +377,21 @@
     "subMenuItems": [
       {
         "id": 46,
+        "parentMenuId": 9,
         "name": "标准制定",
         "icon": "",
         "enable": true
       },
       {
         "id": 47,
+        "parentMenuId": 9,
         "name": "专家审核",
         "icon": "",
         "enable": true
       },
       {
         "id": 48,
+        "parentMenuId": 9,
         "name": "标准备案",
         "icon": "",
         "enable": true
@@ -357,6 +405,7 @@
     "subMenuItems": [
       {
         "id": 49,
+        "parentMenuId": 10,
         "name": "食安学院",
         "icon": "",
         "enable": true
@@ -370,96 +419,112 @@
     "subMenuItems": [
       {
         "id": 50,
+        "parentMenuId": 11,
         "name": "基本信息",
         "icon": "",
         "enable": true
       },
       {
         "id": 51,
+        "parentMenuId": 11,
         "name": "子账号管理",
         "icon": "",
         "enable": true
       },
       {
         "id": 52,
+        "parentMenuId": 11,
         "name": "我的抽检",
         "icon": "",
         "enable": true
       },
       {
         "id": 53,
+        "parentMenuId": 11,
         "name": "我的许可证",
         "icon": "",
         "enable": true
       },
       {
         "id": 54,
+        "parentMenuId": 11,
         "name": "我的食品",
         "icon": "",
         "enable": true
       },
       {
         "id": 55,
+        "parentMenuId": 11,
         "name": "我的原料商（食品生产企业显示）",
         "icon": "",
         "enable": true
       },
       {
         "id": 56,
+        "parentMenuId": 11,
         "name": "我的经销商（食品生产企业显示）",
         "icon": "",
         "enable": true
       },
       {
         "id": 57,
+        "parentMenuId": 11,
         "name": "我的产品供货商（经销商显示）",
         "icon": "",
         "enable": true
       },
       {
         "id": 58,
+        "parentMenuId": 11,
         "name": "我的产品供货商（经销商显示）",
         "icon": "",
         "enable": true
       },
       {
         "id": 59,
+        "parentMenuId": 11,
         "name": "我的法规",
         "icon": "",
         "enable": true
       },
       {
         "id": 60,
+        "parentMenuId": 11,
         "name": "我的标准",
         "icon": "",
         "enable": true
       },
       {
         "id": 61,
+        "parentMenuId": 11,
         "name": "我的标签",
         "icon": "",
         "enable": true
       },
       {
         "id": 62,
+        "parentMenuId": 11,
         "name": "我的日常检查模板",
         "icon": "",
         "enable": true
       },
       {
         "id": 63,
+        "parentMenuId": 11,
         "name": "我的检测数据",
         "icon": "",
         "enable": true
       },
       {
         "id": 64,
+        "parentMenuId": 11,
         "name": "我的企业标准",
         "icon": "",
         "enable": true
       },
       {
         "id": 65,
+        "parentMenuId": 11,
         "name": "我的课程",
         "icon": "",
         "enable": true

@@ -8,8 +8,9 @@
     android:gravity="center_vertical"
     tools:text="创建企业"
     android:textColor="@color/colorWhite"
-    android:padding="12dp"
-    android:textSize="16sp"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="12dp"
+    android:textSize="12sp"
     android:drawablePadding="16dp"
     android:drawableLeft="@drawable/ic_create_enterprise"
     android:drawableRight="@drawable/ic_arrow_right"/>

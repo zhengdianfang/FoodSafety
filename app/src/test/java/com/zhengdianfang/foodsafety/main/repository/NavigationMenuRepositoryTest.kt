@@ -30,36 +30,42 @@ class NavigationMenuRepositoryTest {
             "    \"subMenuItems\": [\n" +
             "      {\n" +
             "        \"id\": 1,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"厂房新建流程\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +
             "      },\n" +
             "      {\n" +
             "        \"id\": 2,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"经营证件办理\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +
             "      },\n" +
             "      {\n" +
             "        \"id\": 3,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"SC许可办理\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +
             "      },\n" +
             "      {\n" +
             "        \"id\": 4,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"原辅料合规判定\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +
             "      },\n" +
             "      {\n" +
             "        \"id\": 5,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"原辅料合规咨询\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +
             "      },\n" +
             "      {\n" +
             "        \"id\": 6,\n" +
+            "        \"parentMenuId\": 1,\n" +
             "        \"name\": \"产品合规研判\",\n" +
             "        \"icon\": \"\",\n" +
             "        \"enable\": true\n" +

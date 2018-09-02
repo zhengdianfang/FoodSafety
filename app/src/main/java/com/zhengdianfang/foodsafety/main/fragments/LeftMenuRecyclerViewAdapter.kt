@@ -3,8 +3,8 @@ package com.zhengdianfang.foodsafety.main.fragments
 
 import android.widget.TextView
 import com.zhengdianfang.foodsafety.R
-import com.zhengdianfang.foodsafety.main.constants.SharedPerferencesKeys.LEFT_MENU_GRID_STYLE
-import com.zhengdianfang.foodsafety.main.constants.SharedPerferencesKeys.LEFT_MENU_LIST_STYLE
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_GRID_STYLE
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_LIST_STYLE
 import com.zhengdianfang.foodsafety.main.model.MenuItem
 import com.zhengdianfang.foodsafety.main.model.SubMenuItem
 import com.zhengdianfang.miracleframework.adapter.base.BaseMultiItemQuickAdapter

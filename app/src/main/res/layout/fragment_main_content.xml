@@ -5,9 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".main.fragments.MainContentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textTextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="切换样式"/>
 
 </FrameLayout>

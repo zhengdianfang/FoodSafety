@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alibaba.android.arouter.launcher.ARouter
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.miracleframework.BaseFragment
 
@@ -25,10 +24,7 @@ class MainFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-        view?.findViewById<View>(R.id.message)?.setOnClickListener {
-            ARouter.getInstance().build("/login/index").navigation()
-        }
+
     }
 
 }

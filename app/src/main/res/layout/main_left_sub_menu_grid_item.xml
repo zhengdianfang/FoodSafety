@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
+    android:gravity="center"
     tools:text="创建企业"
     android:textColor="@color/colorWhite"
-    android:paddingHorizontal="40dp"
-    android:paddingVertical="12dp"
     android:textSize="12sp"
-    android:drawablePadding="16dp"
-    android:drawableLeft="@drawable/ic_left_menu_1"
-    android:drawableRight="@drawable/ic_arrow_right"/>
+    android:paddingLeft="@dimen/sub_menu_padding_left"
+    android:paddingRight="8dp"
+    android:paddingVertical="8dp"
+    android:drawablePadding="4dp" />
 

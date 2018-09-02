@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/leftMenuFragment"
-        android:layout_width="@dimen/left_menu_fragment_width"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.zhengdianfang.foodsafety.main.fragments.MainLeftMenusFragment"
         tools:layout="@layout/fragment_main_left_menu_list"

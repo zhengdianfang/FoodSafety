@@ -38,7 +38,7 @@ class NavigationMenuDaoTest {
     @Test
     fun test_save_main_menus() {
         val menus = listOf(
-                MainMenuItem("menu1", "icon1")
+                MainMenuItem(1,"menu1", "icon1")
         )
         navigationMenuDao.saveAllMainMenus(menus)
         val menuItems = navigationMenuDao.getMenuItems()
@@ -49,19 +49,19 @@ class NavigationMenuDaoTest {
     @Test
     fun test_save_sub_menus() {
         val menus = listOf(
-                MainMenuItem("menu1", "icon1")
+                MainMenuItem(1,"menu1", "icon1")
         )
         navigationMenuDao.saveAllMainMenus(menus)
         val subMenus = listOf(
-                SubMenuItem(1, "subMenu1", "icon1", true),
-                SubMenuItem(1, "subMenu2", "icon2", true),
-                SubMenuItem(1, "subMenu3", "icon3", false)
+                SubMenuItem(1, 1, "subMenu1", "icon1", true),
+                SubMenuItem(2, 1, "subMenu2", "icon2", true),
+                SubMenuItem(3, 1, "subMenu3", "icon3", false)
         )
         navigationMenuDao.saveAllSubMenus(subMenus)
         val menuItems = navigationMenuDao.getMenuItems()
         assertThat(menuItems[0].subMenuItems?.count(), `is`(3))
         assertThat(menuItems[0].subMenuItems?.get(0), equalTo(
-                SubMenuItem(1, "subMenu1", "icon1", true))
+                SubMenuItem(1, 1, "subMenu1", "icon1", true))
         )
     }
 }

@@ -24,6 +24,13 @@ class MainLeftMenusViewModel(application: Application) : AndroidViewModel(applic
     }
 
     fun initialNavigationMenus() {
+        navigationMenuRepository.initialMenuItemsIfNotCache(readAndParseMenuJson()) { menuItems ->
+            menuItemsLiveData.postValue(menuItems)
+        }
+    }
+
+    private fun readAndParseMenuJson(): String {
+        var jsonContent = ""
         var inputStream: InputStream? = null
         var inputStreamReader: InputStreamReader? = null
         var bufferedReader: BufferedReader? = null
@@ -31,9 +38,7 @@ class MainLeftMenusViewModel(application: Application) : AndroidViewModel(applic
             inputStream = getApplication<FoodSafetyApplication>().resources.openRawResource(R.raw.menus)
             inputStreamReader = InputStreamReader(inputStream)
             bufferedReader = BufferedReader(inputStreamReader)
-            navigationMenuRepository.initialMenuItemsIfNotCache(bufferedReader.readText()) { menuItems ->
-                menuItemsLiveData.postValue(menuItems)
-            }
+            jsonContent = bufferedReader?.readText()
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
@@ -41,5 +46,6 @@ class MainLeftMenusViewModel(application: Application) : AndroidViewModel(applic
             inputStreamReader?.close()
             bufferedReader?.close()
         }
+        return jsonContent
     }
 }

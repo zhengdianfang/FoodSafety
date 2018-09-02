@@ -20,7 +20,7 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
                 menuItems = gson.fromJson<List<MenuItem>>(menusJson, object : TypeToken<List<MenuItem>>() {}.type)
                 if (menuItems.isNotEmpty()) {
                     navigationMenuDao.saveAllMainMenus(
-                            menuItems.map { menuItem -> MainMenuItem(menuItem.name, menuItem.icon) }
+                            menuItems.map { menuItem -> MainMenuItem(menuItem.id, menuItem.name, menuItem.icon) }
                     )
                     val subMenuItems = mutableListOf<SubMenuItem>()
                     menuItems.forEach { menuItem ->

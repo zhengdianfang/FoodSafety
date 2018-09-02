@@ -1,26 +1,42 @@
 package com.zhengdianfang.foodsafety.main.fragments
 
 
-import android.view.View
+import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.main.model.MenuItem
-import com.zhengdianfang.miracleframework.adapter.base.BaseSectionQuickAdapter
+import com.zhengdianfang.foodsafety.main.model.SubMenuItem
+import com.zhengdianfang.miracleframework.adapter.base.BaseMultiItemQuickAdapter
 import com.zhengdianfang.miracleframework.adapter.base.BaseViewHolder
-import com.zhengdianfang.miracleframework.adapter.base.entity.SectionEntity
+import com.zhengdianfang.miracleframework.adapter.base.entity.MultiItemEntity
 
 class LeftMenuRecyclerViewAdapter(
-        layoutResId: Int,
-        data: MutableList<SectionEntity<MenuItem>>?) :
-        BaseSectionQuickAdapter<SectionEntity<MenuItem>, LeftMenuRecyclerViewAdapter.ViewHolder>(layoutResId, data) {
+        data: List<MultiItemEntity>?) :
+        BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder>(data) {
 
-    override fun convertHead(helper: ViewHolder?, item: SectionEntity<MenuItem>?) {
+
+    init {
+        addItemType(MenuItem.MAIN_MENU_ITEM, R.layout.main_left_menu_item)
+        addItemType(SubMenuItem.SUB_MENU_ITEM, R.layout.main_left_sub_menu_item)
     }
 
-    override fun convert(helper: ViewHolder?, item: SectionEntity<MenuItem>?) {
+    override fun convert(holder: BaseViewHolder, item: MultiItemEntity) {
+        when(holder.itemViewType) {
+            MenuItem.MAIN_MENU_ITEM -> bindMainMenuDataToView(holder, item as MenuItem)
+            SubMenuItem.SUB_MENU_ITEM -> bindSubMenuDataToView(holder, item as SubMenuItem)
+        }
     }
 
-
-    inner class ViewHolder(itemView: View?) : BaseViewHolder(itemView) {
-
+    private fun bindMainMenuDataToView(holder: BaseViewHolder, item: MenuItem) {
+        holder.setText(R.id.mainMenuTextView, item.name)
+        holder.itemView.setOnClickListener {
+            if (item.isExpanded) {
+                collapse(holder.adapterPosition)
+            } else {
+                expand(holder.adapterPosition)
+            }
+        }
     }
 
+    private fun bindSubMenuDataToView(holder: BaseViewHolder, item: SubMenuItem) {
+        holder.setText(R.id.subMenuTextView, item.name)
+    }
 }

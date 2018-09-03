@@ -9,4 +9,5 @@
     <dimen name="navigation_bar_height">64dp</dimen>
     <dimen name="left_menu_fragment_width">296dp</dimen>
     <dimen name="sub_menu_padding_left">40dp</dimen>
+    <dimen name="super_big">24sp</dimen>
 </resources>

@@ -9,7 +9,7 @@
     android:textColor="@color/colorWhite"
     android:paddingHorizontal="@dimen/sub_menu_padding_left"
     android:paddingVertical="12dp"
-    android:textSize="12sp"
+    android:textSize="@dimen/small"
     android:drawablePadding="16dp"
     android:drawableLeft="@drawable/ic_left_menu_1"
     android:drawableRight="@drawable/ic_arrow_right"/>

@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/left_menu_background"
-    tools:listitem="@layout/main_left_menu_item" />
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/leftMenuRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/left_menu_background"
+        tools:listitem="@layout/main_left_menu_item" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:textSize="@dimen/middle"
+        android:textStyle="normal"
+        android:background="@drawable/setting_background"
+        android:paddingHorizontal="20dp"
+        android:drawableLeft="@drawable/ic_setting"
+        android:drawablePadding="8dp"
+        android:text="@string/setting_text"/>
+</LinearLayout>

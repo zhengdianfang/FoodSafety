@@ -39,6 +39,7 @@ class MainLeftMenusFragmentTest {
         onView(withText("企业查询")).check(matches(isDisplayed()))
         onView(withText("标签管理")).check(matches(isDisplayed()))
         onView(withText("体系检查")).check(matches(isDisplayed()))
+        onView(withText("设置")).check(matches(isDisplayed()))
     }
 
     @Test

@@ -7,7 +7,7 @@
     android:gravity="center"
     tools:text="创建企业"
     android:textColor="@color/colorWhite"
-    android:textSize="12sp"
+    android:textSize="@dimen/small"
     android:paddingLeft="@dimen/sub_menu_padding_left"
     android:paddingRight="8dp"
     android:paddingVertical="8dp"

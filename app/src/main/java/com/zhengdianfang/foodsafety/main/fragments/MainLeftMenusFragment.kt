@@ -6,22 +6,25 @@ import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_GRID_STYLE
 import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_LIST_STYLE
 import com.zhengdianfang.foodsafety.main.model.MenuItem
 import com.zhengdianfang.miracleframework.BaseFragment
+import kotlinx.android.synthetic.main.fragment_main_left_menu_list.*
 import org.jetbrains.anko.displayMetrics
+import org.jetbrains.anko.find
 
 class MainLeftMenusFragment : BaseFragment() {
 
     private val mainLeftMenusViewModel by lazy { ViewModelProviders.of(this).get(MainLeftMenusViewModel::class.java) }
     private val menuItems = mutableListOf<MenuItem>()
-    private val leftMenuRecyclerView by lazy { view as RecyclerView }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -70,7 +73,9 @@ class MainLeftMenusFragment : BaseFragment() {
     }
 
     private fun initRecyclerView(style: String) {
-        leftMenuRecyclerView.adapter = LeftMenuRecyclerViewAdapter(menuItems, mainLeftMenusViewModel.menuStyleLiveData.value!!)
+        val leftMenuRecyclerViewAdapter = LeftMenuRecyclerViewAdapter(menuItems, mainLeftMenusViewModel.menuStyleLiveData.value!!)
+        leftMenuRecyclerViewAdapter.setHeaderView(initUserHeaderView())
+        leftMenuRecyclerView.adapter = leftMenuRecyclerViewAdapter
         when (style) {
             LEFT_MENU_LIST_STYLE -> leftMenuRecyclerView.layoutManager = LinearLayoutManager(context)
             LEFT_MENU_GRID_STYLE -> {
@@ -85,5 +90,12 @@ class MainLeftMenusFragment : BaseFragment() {
                 leftMenuRecyclerView.layoutManager = gridLayoutManager
             }
         }
+    }
+
+    private fun initUserHeaderView(): View {
+        val headerView = LayoutInflater.from(context).inflate(R.layout.left_menu_user_info_layout, null)
+        val avatarImageView = headerView.find<ImageView>(R.id.avatarImageView)
+        Glide.with(this).load(R.mipmap.ic_launcher).apply(RequestOptions.circleCropTransform()).into(avatarImageView)
+        return headerView
     }
 }

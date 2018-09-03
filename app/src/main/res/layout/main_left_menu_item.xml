@@ -8,7 +8,7 @@
     tools:text="创建企业"
     android:textColor="@color/colorWhite"
     android:padding="16dp"
-    android:textSize="16sp"
+    android:textSize="@dimen/big"
     android:drawablePadding="16dp"
     android:drawableLeft="@drawable/ic_left_menu_1"
     android:drawableRight="@drawable/ic_arrow_down"/>

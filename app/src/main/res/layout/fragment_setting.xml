@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorUnActive"
+    android:orientation="vertical"
+    tools:context=".setting.fragments.SettingFragment">
+
+    <include layout="@layout/navigation_bar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/menuStyleSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_setting_menu_style"
+                android:text="@string/menu_style_setting_text" />
+
+            <TextView
+                android:id="@+id/feedbackSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_setting_feedback"
+                android:text="@string/feedback_setting_text" />
+
+            <TextView
+                android:id="@+id/aboutSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@drawable/ic_setting_about_us"
+                android:text="@string/about_us_setting_text" />
+
+            <TextView
+                android:id="@+id/shareSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_setting_share"
+                android:text="@string/share_setting_text" />
+
+            <TextView
+                android:id="@+id/evaluateSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:drawableLeft="@drawable/ic_setting_evaluate"
+                android:text="@string/evaluate_setting_text" />
+
+            <TextView
+                android:id="@+id/appClauseSettingView"
+                style="@style/AppTheme.Setting.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_setting_private_clause"
+                android:text="@string/private_clause_setting_text" />
+
+            <TextView
+                android:id="@+id/logoutView"
+                style="@style/AppTheme.Setting.Item.Logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="@string/logout_text" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

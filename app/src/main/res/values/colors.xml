@@ -8,6 +8,8 @@
     <color name="colorBlack">#4e4e4e</color>
     <color name="colorYellow">#f3b164</color>
     <color name="colorUnActiveText">#989898</color>
+    <color name="setting_item_text_color">#666666</color>
+    <color name="logout_button_text_color">#FFED7367</color>
 
 
     <drawable name="drawableBtnNormalColor">#34bfbd</drawable>

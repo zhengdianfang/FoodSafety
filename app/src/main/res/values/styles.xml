@@ -6,6 +6,7 @@
         <item name="editTextStyle">@style/AppTheme.EditText</item>
         <item name="android:windowBackground">@drawable/drawableWindowBackground</item>
         <item name="buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="imageButtonStyle">@style/AppTheme.ImageButton</item>
     </style>
 
@@ -14,8 +15,10 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.NavigationBar">
-        <item name="android:layout_marginLeft">-17dp</item>
-        <item name="android:layout_marginRight">-17dp</item>
+    </style>
+    <style name="AppTheme.NavigationBar.Title">
+        <item name="android:textSize">@dimen/super_middle</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <!-- window -->
@@ -73,5 +76,23 @@
         <item name="android:paddingBottom">16dp</item>
         <item name="android:textSize">@dimen/big</item>
         <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <!-- setting style -->
+    <style name="AppTheme.Setting"></style>
+    <style name="AppTheme.Setting.Item">
+        <item name="android:textSize">@dimen/big</item>
+        <item name="android:textColor">@color/setting_item_text_color</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/drawableWindowBackground</item>
+    </style>
+
+    <style name="AppTheme.Setting.Item.Logout" parent="AppTheme.Setting.Item">
+        <item name="android:textSize">@dimen/super_middle</item>
+        <item name="android:textColor">@color/logout_button_text_color</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/drawableWindowBackground</item>
     </style>
 </resources>

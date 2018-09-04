@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zhengdianfang.foodsafety.R
@@ -35,6 +36,7 @@ class MainLeftMenusFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         initViews(mainLeftMenusViewModel.menuStyleLiveData.value!!)
         initViewModel()
+        bindEvents()
     }
 
     private fun initViews(style: String) {
@@ -97,5 +99,11 @@ class MainLeftMenusFragment : BaseFragment() {
         val avatarImageView = headerView.find<ImageView>(R.id.avatarImageView)
         Glide.with(this).load(R.mipmap.ic_launcher).apply(RequestOptions.circleCropTransform()).into(avatarImageView)
         return headerView
+    }
+
+    private fun bindEvents() {
+        settingButton.setOnClickListener {
+            ARouter.getInstance().build("/setting/index").navigation(context)
+        }
     }
 }

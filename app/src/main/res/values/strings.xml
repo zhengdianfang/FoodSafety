@@ -44,4 +44,13 @@
     <string name="submit_text">提交</string>
     <string name="setting_text">设置</string>
     <string name="home_page_text">首页</string>
+    <string name="menu_style_setting_text">功能展示样式</string>
+    <string name="feedback_setting_text">意见反馈</string>
+    <string name="about_us_setting_text">关于我们</string>
+    <string name="share_setting_text">分享易食安</string>
+    <string name="evaluate_setting_text">给个好评</string>
+    <string name="private_clause_setting_text">易食安使用条款</string>
+    <string name="setting_fragment_title">设置</string>
+    <string name="logout_text">退出登录</string>
+
 </resources>

@@ -21,7 +21,7 @@
         tools:text="test" />
 
     <CheckBox
-        android:id="@+id/menuEnableSwitch"
+        android:id="@+id/menuEnableCheckBox"
         style="@style/AppTheme.ManageMenu.Checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

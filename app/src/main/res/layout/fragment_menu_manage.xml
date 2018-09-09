@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".setting.fragments.LeftMenuManageFragment">
+    tools:context=".main.fragments.LeftMenuManageFragment">
 
     <include
         layout="@layout/navigation_bar_light_layout"

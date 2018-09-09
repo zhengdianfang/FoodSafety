@@ -15,6 +15,7 @@ class MenuItem: IExpandable<SubMenuItem>, MultiItemEntity {
     var id: Int = 0
     var name: String = ""
     var icon: String = ""
+    var enable: Boolean = true
 
     @Ignore
     var expandable  = false
@@ -41,6 +42,10 @@ class MenuItem: IExpandable<SubMenuItem>, MultiItemEntity {
     override fun getItemType(): Int {
         return MAIN_MENU_ITEM
     }
+
+    fun createMainMenuItem (): MainMenuItem {
+        return MainMenuItem(id, name, icon, enable)
+    }
 }
 
 @Entity
@@ -48,7 +53,8 @@ data class MainMenuItem (
         @PrimaryKey
         var id:Int,
         var name: String,
-        var icon: String
+        var icon: String,
+        var enable: Boolean = true
 )
 
 @Entity

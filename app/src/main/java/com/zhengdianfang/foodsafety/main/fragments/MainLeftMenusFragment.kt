@@ -1,6 +1,5 @@
 package com.zhengdianfang.foodsafety.main.fragments
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
@@ -14,6 +13,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.zhengdianfang.foodsafety.R
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys
 import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_GRID_STYLE
 import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_LIST_STYLE
 import com.zhengdianfang.foodsafety.main.model.MenuItem
@@ -21,6 +21,7 @@ import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main_left_menu_list.*
 import org.jetbrains.anko.displayMetrics
 import org.jetbrains.anko.find
+import java.lang.ref.SoftReference
 
 class MainLeftMenusFragment : BaseFragment() {
 
@@ -34,7 +35,7 @@ class MainLeftMenusFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initViews(mainLeftMenusViewModel.menuStyleLiveData.value!!)
+        initViews(SharedPreferencesKeys.LEFT_MENU_LIST_STYLE)
         initViewModel()
         bindEvents()
     }
@@ -60,22 +61,26 @@ class MainLeftMenusFragment : BaseFragment() {
     }
 
     private fun initViewModel() {
-        mainLeftMenusViewModel.menuItemsLiveData.observe(this, Observer<MutableList<MenuItem>> { items ->
-            if (items != null) {
-                menuItems.clear()
-                menuItems.addAll(items)
-                leftMenuRecyclerView.adapter.notifyDataSetChanged()
-            }
-        })
+        mainLeftMenusViewModel.updateMenuItems = { items ->
+            menuItems.clear()
+            val filters = items.filter { menuItem -> menuItem.enable }
+                    .map { menuItem ->
+                        menuItem.subMenuItems = menuItem.subMenuItems?.filter { subMenuItem -> subMenuItem.enable }
+                        menuItem
+                    }
+            menuItems.addAll(filters)
+            leftMenuRecyclerView.adapter.notifyDataSetChanged()
+        }
 
-        mainLeftMenusViewModel.menuStyleLiveData.observe(this, Observer<String> { style ->
-            initViews(style!!)
-        })
-        mainLeftMenusViewModel.initialNavigationMenus()
+        mainLeftMenusViewModel.updateMenuStyle = { style ->
+            initViews(style)
+        }
+        mainLeftMenusViewModel.observerMenuStyle(SoftReference(this))
+        mainLeftMenusViewModel.initialNavigationMenus(SoftReference(this))
     }
 
     private fun initRecyclerView(style: String) {
-        val leftMenuRecyclerViewAdapter = LeftMenuRecyclerViewAdapter(menuItems, mainLeftMenusViewModel.menuStyleLiveData.value!!)
+        val leftMenuRecyclerViewAdapter = LeftMenuRecyclerViewAdapter(menuItems, style)
         leftMenuRecyclerViewAdapter.setHeaderView(initUserHeaderView())
         leftMenuRecyclerView.adapter = leftMenuRecyclerViewAdapter
         when (style) {

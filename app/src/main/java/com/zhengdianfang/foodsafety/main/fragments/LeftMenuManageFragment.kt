@@ -1,7 +1,6 @@
-package com.zhengdianfang.foodsafety.setting.fragments
+package com.zhengdianfang.foodsafety.main.fragments
 
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -10,15 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
-
 import com.zhengdianfang.foodsafety.R
-import com.zhengdianfang.foodsafety.main.fragments.MainLeftMenusViewModel
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_GRID_STYLE
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_LIST_STYLE
+import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_STYLE
 import com.zhengdianfang.foodsafety.main.model.MenuItem
 import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu_manage.*
 import kotlinx.android.synthetic.main.navigation_bar_light_layout.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.forEachChildWithIndex
+import org.jetbrains.anko.support.v4.defaultSharedPreferences
+import java.lang.ref.SoftReference
 
 class LeftMenuManageFragment : BaseFragment() {
     private val checkedBackgroundColor by lazy {  ContextCompat.getColor(context!!, R.color.colorPrimary) }
@@ -73,19 +75,31 @@ class LeftMenuManageFragment : BaseFragment() {
                 }
             }
         }
-        styleMenuRadioGroup.check(R.id.listStyleRadioButton)
-        bindViewModel()
+        val willCheckedRadioButtonId = if (defaultSharedPreferences.getString(LEFT_MENU_STYLE, LEFT_MENU_LIST_STYLE) == LEFT_MENU_LIST_STYLE)
+            R.id.listStyleRadioButton else R.id.gridStyleRadioButton
+        styleMenuRadioGroup.check(willCheckedRadioButtonId)
+
+        rightButton.setOnClickListener {
+            saveModifiedMenuItems()
+        }
+    }
+
+    private fun saveModifiedMenuItems() {
+        mainLeftMenusViewModel.updateMenuItems(menuItems)
+        defaultSharedPreferences.edit().putString(
+                LEFT_MENU_STYLE,
+                if(styleMenuRadioGroup.checkedRadioButtonId == R.id.listStyleRadioButton ) LEFT_MENU_LIST_STYLE else LEFT_MENU_GRID_STYLE
+        ).apply()
+        pop()
     }
 
     private fun bindViewModel() {
-        mainLeftMenusViewModel.menuItemsLiveData.observe(this, Observer<MutableList<MenuItem>> { items ->
-            if (items != null) {
-                menuItems?.clear()
-                menuItems?.addAll(items)
-                manageMenuAdapter.notifyDataSetChanged()
-            }
-        })
-        mainLeftMenusViewModel.initialNavigationMenus()
+        mainLeftMenusViewModel.updateMenuItems = { items ->
+            menuItems.clear()
+            menuItems.addAll(items)
+            manageMenuAdapter.notifyDataSetChanged()
+        }
+        mainLeftMenusViewModel.initialNavigationMenus(SoftReference(this))
     }
 
     private fun resetRadioButtonStyle(radioGroup: RadioGroup) {

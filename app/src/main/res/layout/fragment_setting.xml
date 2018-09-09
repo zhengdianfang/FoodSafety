@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorUnActive"
     android:orientation="vertical"
-    tools:context=".setting.fragments.SettingFragment">
+    tools:context=".main.fragments.SettingFragment">
 
     <include layout="@layout/navigation_bar_dark_layout" />
 

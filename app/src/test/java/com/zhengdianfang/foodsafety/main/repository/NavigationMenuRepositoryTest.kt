@@ -1,5 +1,6 @@
 package com.zhengdianfang.foodsafety.main.repository
 
+import android.arch.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.zhengdianfang.foodsafety.main.datasource.database.NavigationMenuDao
@@ -81,14 +82,16 @@ class NavigationMenuRepositoryTest {
     @Test
     fun test_initial_navigation_menus_data_when_no_record_in_database() {
         val countDownLatch = CountDownLatch(1)
-        `when`(navigationMenuDao.getMenuItems()).thenReturn(listOf())
+        val mockResult = MutableLiveData<List<MenuItem>>()
+        mockResult.value = listOf()
+        `when`(navigationMenuDao.getMenuItems()).thenReturn(mockResult)
         navigationMenuRepository.initialMenuItemsIfNotCache(mockJson) { menuItems ->
-            verify(navigationMenuDao).saveAllMainMenus(menuItems.map { MainMenuItem(it.id, it.name, it.icon) })
+            verify(navigationMenuDao).saveAllMainMenus(menuItems.value!!.map { MainMenuItem(it.id, it.name, it.icon) })
             val subMenuItems = mutableListOf<SubMenuItem>()
-            menuItems.forEach { subMenuItems.addAll(it.subMenuItems!!) }
+            menuItems.value!!.forEach { subMenuItems.addAll(it.subMenuItems!!) }
             verify(navigationMenuDao).saveAllSubMenus(subMenuItems.toList())
-            assertEquals(menuItems.count(), 1)
-            assertEquals(menuItems[0].subMenuItems?.count(), 6)
+            assertEquals(menuItems.value!!.count(), 1)
+            assertEquals(menuItems.value?.first()?.subMenuItems?.count(), 6)
             countDownLatch.countDown()
         }
         countDownLatch.await()
@@ -98,15 +101,17 @@ class NavigationMenuRepositoryTest {
     fun test_initial_navigation_menus_data_when_has_record_in_database() {
         val countDownLatch = CountDownLatch(1)
         val gson = Gson()
-        var menuItems = gson.fromJson<List<MenuItem>>(mockJson, object : TypeToken<List<MenuItem>>() {}.type)
-        `when`(navigationMenuDao.getMenuItems()).thenReturn(menuItems)
-        navigationMenuRepository.initialMenuItemsIfNotCache(mockJson) { menuItems ->
-            verify(navigationMenuDao, never()).saveAllMainMenus(menuItems.map { MainMenuItem(it.id, it.name, it.icon) })
+        val menuItems = gson.fromJson<List<MenuItem>>(mockJson, object : TypeToken<List<MenuItem>>() {}.type)
+        val mockResult = MutableLiveData<List<MenuItem>>()
+        mockResult.value = menuItems
+        `when`(navigationMenuDao.getMenuItems()).thenReturn(mockResult)
+        navigationMenuRepository.initialMenuItemsIfNotCache(mockJson) { items ->
+            verify(navigationMenuDao, never()).saveAllMainMenus(items.value!!.map { MainMenuItem(it.id, it.name, it.icon) })
             val subMenuItems = mutableListOf<SubMenuItem>()
-            menuItems.forEach { subMenuItems.addAll(it.subMenuItems!!) }
+            items.value!!.forEach { subMenuItems.addAll(it.subMenuItems!!) }
             verify(navigationMenuDao, never()).saveAllSubMenus(subMenuItems.toList())
-            assertEquals(menuItems.count(), 1)
-            assertEquals(menuItems[0].subMenuItems?.count(), 6)
+            assertEquals(items.value!!.count(), 1)
+            assertEquals(items.value?.first()?.subMenuItems?.count(), 6)
             countDownLatch.countDown()
         }
         countDownLatch.await()

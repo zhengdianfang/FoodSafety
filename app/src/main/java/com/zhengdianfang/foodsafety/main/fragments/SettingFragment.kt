@@ -1,4 +1,4 @@
-package com.zhengdianfang.foodsafety.setting.fragments
+package com.zhengdianfang.foodsafety.main.fragments
 
 
 import android.os.Bundle

@@ -3,6 +3,7 @@
     "id": 1,
     "name": "食品生产",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 1,
@@ -52,6 +53,7 @@
     "id": 2,
     "name": "企业查询",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 7,
@@ -101,6 +103,7 @@
     "id": 3,
     "name": "标签管理",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 13,
@@ -157,6 +160,7 @@
     "id": 4,
     "name": "体系检查",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 20,
@@ -192,6 +196,7 @@
     "id": 5,
     "name": "抽检引导",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 24,
@@ -248,6 +253,7 @@
     "id": 6,
     "name": "系统防控",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 31,
@@ -297,6 +303,7 @@
     "id": 7,
     "name": "法规查询",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 37,
@@ -339,6 +346,7 @@
     "id": 8,
     "name": "标准查询",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 42,
@@ -367,6 +375,7 @@
     "id": 9,
     "name": "企业标准",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 46,
@@ -395,6 +404,7 @@
     "id": 10,
     "name": "食安学苑",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 49,
@@ -409,6 +419,7 @@
     "id": 11,
     "name": "我的信息",
     "icon": "",
+    "enable": true,
     "subMenuItems": [
       {
         "id": 50,

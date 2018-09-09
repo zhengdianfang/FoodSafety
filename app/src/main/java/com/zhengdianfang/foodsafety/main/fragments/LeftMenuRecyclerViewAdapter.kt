@@ -1,6 +1,9 @@
 package com.zhengdianfang.foodsafety.main.fragments
 
 
+import android.graphics.Color
+import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.drawable.DrawableCompat
 import android.widget.TextView
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.main.constants.SharedPreferencesKeys.LEFT_MENU_GRID_STYLE
@@ -38,13 +41,15 @@ class LeftMenuRecyclerViewAdapter(data: List<MultiItemEntity>, private val style
         val context = holder.itemView.context
         val leftDrawableId = context.resources.getIdentifier("ic_left_menu_${item.id}",
                 "drawable", context.packageName)
+        val leftDrawable = ContextCompat.getDrawable(context, leftDrawableId)
+        DrawableCompat.setTint(leftDrawable!!, Color.WHITE)
 
         val rightDrawableId = if (item.expandable) R.drawable.ic_arrow_up else R.drawable.ic_arrow_down
         mainMenuView.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                leftDrawableId,
-                0,
-                rightDrawableId,
-                0
+                leftDrawable,
+                null,
+                ContextCompat.getDrawable(context, rightDrawableId),
+               null
         )
         mainMenuView.setOnClickListener {
             if (item.isExpanded) {
@@ -62,21 +67,25 @@ class LeftMenuRecyclerViewAdapter(data: List<MultiItemEntity>, private val style
         val leftDrawableId = context.resources.getIdentifier("ic_left_menu_${item.parentMenuId}_${item.id}",
                 "drawable", context.packageName)
 
+        val leftDrawable = ContextCompat.getDrawable(context, if(leftDrawableId <= 0) R.drawable.ic_left_menu_1_1 else leftDrawableId)
+        DrawableCompat.setTint(leftDrawable!!, Color.WHITE)
+
         when(style) {
             LEFT_MENU_LIST_STYLE -> {
                 subMenuView.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        if(leftDrawableId <= 0) R.drawable.ic_left_menu_1_1 else leftDrawableId,
-                        0,
-                        R.drawable.ic_arrow_right,
-                        0
+                        leftDrawable,
+                        null,
+                        ContextCompat.getDrawable(context, R.drawable.ic_arrow_right),
+                       null
                 )
             }
             LEFT_MENU_GRID_STYLE -> {
                 subMenuView.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        0,
-                        if(leftDrawableId <= 0) R.drawable.ic_left_menu_1_1 else leftDrawableId,
-                        0,
-                        0
+                        null
+                        ,
+                        leftDrawable,
+                        null,
+                        null
                 )
             }
         }

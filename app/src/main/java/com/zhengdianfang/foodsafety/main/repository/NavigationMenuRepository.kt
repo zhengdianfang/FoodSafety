@@ -1,5 +1,6 @@
 package com.zhengdianfang.foodsafety.main.repository
 
+import android.arch.lifecycle.LiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.zhengdianfang.foodsafety.main.datasource.database.NavigationMenuDao
@@ -12,12 +13,12 @@ import javax.inject.Inject
 
 class NavigationMenuRepository @Inject constructor(private val navigationMenuDao: NavigationMenuDao) {
 
-    fun initialMenuItemsIfNotCache(@NotNull menusJson: String, @NotNull initialCallback: (menuItems: List<MenuItem>) -> Unit) {
+    fun initialMenuItemsIfNotCache(@NotNull menusJson: String, @NotNull initialCallback: (menuItems: LiveData<List<MenuItem>>) -> Unit) {
         doAsync {
-            var menuItems = navigationMenuDao.getMenuItems()
-            if (menuItems.isEmpty()) {
+            var menuItemsLiveData = navigationMenuDao.getMenuItems()
+            if (menuItemsLiveData.value?.isEmpty() == true) {
                 val gson = Gson()
-                menuItems = gson.fromJson<List<MenuItem>>(menusJson, object : TypeToken<List<MenuItem>>() {}.type)
+                val menuItems = gson.fromJson<List<MenuItem>>(menusJson, object : TypeToken<List<MenuItem>>() {}.type)
                 if (menuItems.isNotEmpty()) {
                     navigationMenuDao.saveAllMainMenus(
                             menuItems.map { menuItem -> MainMenuItem(menuItem.id, menuItem.name, menuItem.icon) }
@@ -30,8 +31,23 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
                     }
                     navigationMenuDao.saveAllSubMenus(subMenuItems.toList())
                 }
+                menuItemsLiveData= navigationMenuDao.getMenuItems()
             }
-            initialCallback(menuItems)
+            initialCallback(menuItemsLiveData)
+        }
+    }
+
+    fun updateMenuItems(menuItems: List<MenuItem>) {
+        doAsync {
+            navigationMenuDao.saveAllMainMenus(
+                    menuItems.map { menuItem -> menuItem.createMainMenuItem() }
+            )
+            val subMenus = mutableListOf<SubMenuItem>()
+
+            menuItems.forEach { menuItem ->
+                subMenus.addAll(menuItem.subMenuItems!!)
+            }
+            navigationMenuDao.saveAllSubMenus(subMenus)
         }
     }
 }

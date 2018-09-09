@@ -1,4 +1,4 @@
-package com.zhengdianfang.foodsafety.setting.fragments
+package com.zhengdianfang.foodsafety.main.fragments
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
@@ -11,8 +11,7 @@ import android.support.v4.content.ContextCompat
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.foodsafety.common.matcher.BackgroundColorDrawableMatcher
 import com.zhengdianfang.foodsafety.common.matcher.TextColorMatcher
-import com.zhengdianfang.foodsafety.setting.SettingActivity
-import org.junit.After
+import com.zhengdianfang.foodsafety.main.SettingActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

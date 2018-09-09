@@ -1,4 +1,4 @@
-package com.zhengdianfang.foodsafety.setting.fragments
+package com.zhengdianfang.foodsafety.main.fragments
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.assertion.ViewAssertions.matches
@@ -7,7 +7,7 @@ import android.support.test.filters.LargeTest
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.zhengdianfang.foodsafety.R
-import com.zhengdianfang.foodsafety.setting.SettingActivity
+import com.zhengdianfang.foodsafety.main.SettingActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

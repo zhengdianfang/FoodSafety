@@ -41,9 +41,9 @@ class NavigationMenuDaoTest {
                 MainMenuItem(1,"menu1", "icon1")
         )
         navigationMenuDao.saveAllMainMenus(menus)
-        val menuItems = navigationMenuDao.getMenuItems()
-        assertThat(menuItems.count(), `is`(1))
-        assertThat(menuItems[0].id, `is`(1))
+        val menuItems = navigationMenuDao.getMenuItems().value
+        assertThat(menuItems?.count(), `is`(1))
+        assertThat(menuItems?.get(0)?.id, `is`(1))
     }
 
     @Test
@@ -58,10 +58,32 @@ class NavigationMenuDaoTest {
                 SubMenuItem(3, 1, "subMenu3", "icon3", false)
         )
         navigationMenuDao.saveAllSubMenus(subMenus)
-        val menuItems = navigationMenuDao.getMenuItems()
-        assertThat(menuItems[0].subMenuItems?.count(), `is`(3))
-        assertThat(menuItems[0].subMenuItems?.get(0), equalTo(
+        val menuItems = navigationMenuDao.getMenuItems().value
+        assertThat(menuItems?.first()?.subMenuItems?.count(), `is`(3))
+        assertThat(menuItems?.first()?.subMenuItems?.get(0), equalTo(
                 SubMenuItem(1, 1, "subMenu1", "icon1", true))
         )
+    }
+
+    @Test
+    fun test_update_main_menu() {
+        test_save_main_menus()
+        val newMainMenu = MainMenuItem(1,"menu2", "icon2", false)
+        navigationMenuDao.updateMainMenu(newMainMenu)
+        val menuItems = navigationMenuDao.getMenuItems().value
+        assertThat(menuItems?.count(), `is`(1))
+        assertThat(menuItems?.first()?.name, `is`("menu2"))
+        assertThat(menuItems?.first()?.enable, `is`(false))
+    }
+
+    @Test
+    fun test_update_sub_menu() {
+        test_save_sub_menus()
+        val newSubMenu = SubMenuItem(1, 1,"menu2", "icon2", false)
+        navigationMenuDao.updateSubMenu(newSubMenu)
+        val menuItems = navigationMenuDao.getMenuItems().value
+        assertThat(menuItems?.first()?.subMenuItems?.count(), `is`(3))
+        assertThat(menuItems?.first()?.subMenuItems?.get(0)?.name, `is`("menu2"))
+        assertThat(menuItems?.first()?.subMenuItems?.get(0)?.enable, `is`(false))
     }
 }

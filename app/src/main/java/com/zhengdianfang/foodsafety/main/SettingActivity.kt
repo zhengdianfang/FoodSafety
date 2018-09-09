@@ -1,8 +1,8 @@
-package com.zhengdianfang.foodsafety.setting
+package com.zhengdianfang.foodsafety.main
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.zhengdianfang.foodsafety.setting.fragments.SettingFragment
+import com.zhengdianfang.foodsafety.main.fragments.SettingFragment
 import com.zhengdianfang.miracleframework.BaseActivity
 
 @Route(path = "/setting/index")

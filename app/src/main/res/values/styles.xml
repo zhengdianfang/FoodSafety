@@ -96,8 +96,10 @@
         <item name="android:textSize">@dimen/small</item>
         <item name="android:drawablePadding">16dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingVertical" tools:ignore="NewApi">12dp</item>
-        <item name="android:paddingHorizontal" tools:ignore="NewApi">@dimen/sub_menu_padding_left</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">@dimen/sub_menu_padding_left</item>
+        <item name="android:paddingRight">@dimen/sub_menu_padding_left</item>
     </style>
 
     <!-- setting style -->
@@ -120,10 +122,12 @@
 
     <!--menu manage fragment style-->
     <style name="AppTheme.ManageMenu"></style>
-    <style name="AppTheme.ManageMenu.Checkbox" tools:ignore="NewApi">
+    <style name="AppTheme.ManageMenu.Checkbox">
         <item name="android:button">@null</item>
-        <item name="android:paddingHorizontal">16dp</item>
-        <item name="android:paddingVertical">4dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
         <item name="android:textSize">@dimen/super_small</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:background">@drawable/manage_sub_menu_checkbox_checked_background</item>

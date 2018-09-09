@@ -2,13 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingHorizontal="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/menuNameView"
-        style="@style/AppTheme.LeftMenu.MainItem"
+        style="@style/AppTheme.LeftMenu.SubItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -23,9 +22,10 @@
 
     <CheckBox
         android:id="@+id/menuEnableSwitch"
+        style="@style/AppTheme.ManageMenu.Checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/AppTheme.ManageMenu.Checkbox"
+        android:layout_marginRight="16dp"
         android:text="@string/display_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

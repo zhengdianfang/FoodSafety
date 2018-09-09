@@ -1,6 +1,8 @@
 package com.zhengdianfang.foodsafety.setting.fragments
 
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
@@ -10,6 +12,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 
 import com.zhengdianfang.foodsafety.R
+import com.zhengdianfang.foodsafety.main.fragments.MainLeftMenusViewModel
+import com.zhengdianfang.foodsafety.main.model.MenuItem
 import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu_manage.*
 import kotlinx.android.synthetic.main.navigation_bar_light_layout.*
@@ -23,6 +27,8 @@ class LeftMenuManageFragment : BaseFragment() {
     private val uncheckedTextColor by lazy { ContextCompat.getColor(context!!, R.color.colorBlack) }
     private val menuManageHeaderView by lazy { LayoutInflater.from(context).inflate(R.layout.menu_manage_header_layout, null) }
     private val styleMenuRadioGroup by lazy { menuManageHeaderView.find<RadioGroup>(R.id.styleMenuRadioGroup) }
+    private val mainLeftMenusViewModel by lazy { ViewModelProviders.of(this).get(MainLeftMenusViewModel::class.java) }
+    private val menuItems = mutableListOf<MenuItem>()
     private lateinit var manageMenuAdapter: ManageMenuAdapter
 
     companion object {
@@ -39,12 +45,13 @@ class LeftMenuManageFragment : BaseFragment() {
 
         initViews()
         bindEvents()
+        bindViewModel()
     }
 
     private fun initViews() {
         navigationTitleView.setText(R.string.style_manage_title)
         rightButton.setText(R.string.save_text)
-        manageMenuAdapter = ManageMenuAdapter(mutableListOf())
+        manageMenuAdapter = ManageMenuAdapter(menuItems)
         manageMenuAdapter.addHeaderView(menuManageHeaderView)
         manageRecyclerView.adapter = manageMenuAdapter
 
@@ -67,7 +74,20 @@ class LeftMenuManageFragment : BaseFragment() {
             }
         }
         styleMenuRadioGroup.check(R.id.listStyleRadioButton)
+        bindViewModel()
     }
+
+    private fun bindViewModel() {
+        mainLeftMenusViewModel.menuItemsLiveData.observe(this, Observer<MutableList<MenuItem>> { items ->
+            if (items != null) {
+                menuItems?.clear()
+                menuItems?.addAll(items)
+                manageMenuAdapter.notifyDataSetChanged()
+            }
+        })
+        mainLeftMenusViewModel.initialNavigationMenus()
+    }
+
     private fun resetRadioButtonStyle(radioGroup: RadioGroup) {
         radioGroup.forEachChildWithIndex { _, view ->
             view.setBackgroundColor(uncheckedBackgroundColor)

@@ -60,8 +60,7 @@ class MainLeftMenusFragment : BaseFragment() {
     }
 
     private fun initViewModel() {
-        mainLeftMenusViewModel.initialNavigationMenus()
-        mainLeftMenusViewModel.menuItemsLiveData.observe(this, Observer<List<MenuItem>> { items ->
+        mainLeftMenusViewModel.menuItemsLiveData.observe(this, Observer<MutableList<MenuItem>> { items ->
             if (items != null) {
                 menuItems.clear()
                 menuItems.addAll(items)
@@ -72,6 +71,7 @@ class MainLeftMenusFragment : BaseFragment() {
         mainLeftMenusViewModel.menuStyleLiveData.observe(this, Observer<String> { style ->
             initViews(style!!)
         })
+        mainLeftMenusViewModel.initialNavigationMenus()
     }
 
     private fun initRecyclerView(style: String) {

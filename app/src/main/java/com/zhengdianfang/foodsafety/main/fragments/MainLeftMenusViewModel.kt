@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 class MainLeftMenusViewModel(application: Application) : AndroidViewModel(application) {
 
-    var menuItemsLiveData = MutableLiveData<List<MenuItem>>()
+    var menuItemsLiveData = MutableLiveData<MutableList<MenuItem>>()
     val menuStyleLiveData by lazy {
         val styleLiveData = getApplication<FoodSafetyApplication>().defaultSharedPreferences
                 .stringLiveData(LEFT_MENU_STYLE, LEFT_MENU_LIST_STYLE)
@@ -34,7 +34,7 @@ class MainLeftMenusViewModel(application: Application) : AndroidViewModel(applic
 
     fun initialNavigationMenus() {
         navigationMenuRepository.initialMenuItemsIfNotCache(readAndParseMenuJson()) { menuItems ->
-            menuItemsLiveData.postValue(menuItems)
+            menuItemsLiveData.postValue(menuItems.toMutableList())
         }
     }
 
@@ -47,7 +47,7 @@ class MainLeftMenusViewModel(application: Application) : AndroidViewModel(applic
             inputStream = getApplication<FoodSafetyApplication>().resources.openRawResource(R.raw.menus)
             inputStreamReader = InputStreamReader(inputStream)
             bufferedReader = BufferedReader(inputStreamReader)
-            jsonContent = bufferedReader?.readText()
+            jsonContent = bufferedReader.readText()
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {

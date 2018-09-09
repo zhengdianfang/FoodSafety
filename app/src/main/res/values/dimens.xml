@@ -3,7 +3,9 @@
     <dimen name="big">16sp</dimen>
     <dimen name="middle">14sp</dimen>
     <dimen name="small">12sp</dimen>
+    <dimen name="super_small">10sp</dimen>
     <dimen name="super_middle">20sp</dimen>
+    <dimen name="middle_big">18sp</dimen>
     <dimen name="super_big">24sp</dimen>
 
     <dimen name="edit_text_height">48dp</dimen>

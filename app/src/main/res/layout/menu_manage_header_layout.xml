@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/titleView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorUnActive"
+    android:orientation="vertical"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/navigationBar">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/styleTitleView"
+            style="@style/AppTheme.TitleText.Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/display_style_text"
+            android:textSize="@dimen/middle" />
+
+        <RadioGroup
+            android:id="@+id/styleMenuRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/primary_color_border_box"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/listStyleRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/list_style_text"
+                android:textSize="@dimen/middle_big" />
+
+            <RadioButton
+                android:id="@+id/gridStyleRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/grad_style_text"
+                android:textSize="@dimen/middle_big" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.TitleText"
+        android:background="@color/colorWhite"
+        android:textColor="@color/colorBlack"
+        android:gravity="start"
+        android:paddingTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:text="@string/menu_manage_title"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/super_small"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:text="@string/menu_manage_tips"/>
+</LinearLayout>

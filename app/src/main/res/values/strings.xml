@@ -53,4 +53,13 @@
     <string name="setting_fragment_title">设置</string>
     <string name="logout_text">退出登录</string>
 
+    <string name="list_style_text">列表样式</string>
+    <string name="grad_style_text">宫格样式</string>
+    <string name="style_manage_title">功能展示样式</string>
+    <string name="save_text">保存</string>
+    <string name="display_style_text">展示样式</string>
+    <string name="display_text">显示</string>
+    <string name="menu_manage_title">功能展示</string>
+    <string name="menu_manage_tips">您可以选择隐藏不常用的功能</string>
+
 </resources>

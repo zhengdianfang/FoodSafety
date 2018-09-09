@@ -10,7 +10,7 @@
     tools:context=".profile.fragments.register.RegisterFragment">
 
     <include
-        layout="@layout/navigation_bar_layout"
+        layout="@layout/navigation_bar_dark_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />

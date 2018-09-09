@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -18,6 +18,10 @@
     </style>
     <style name="AppTheme.NavigationBar.Title">
         <item name="android:textSize">@dimen/super_middle</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <style name="AppTheme.NavigationBar.RightButton">
+        <item name="android:textSize">@dimen/middle</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
@@ -78,6 +82,24 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <!--left menu fragment style-->
+    <style name="AppTheme.LeftMenu"></style>
+    <style name="AppTheme.LeftMenu.MainItem">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/big</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="AppTheme.LeftMenu.SubItem">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/small</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingVertical" tools:ignore="NewApi">12dp</item>
+        <item name="android:paddingHorizontal" tools:ignore="NewApi">@dimen/sub_menu_padding_left</item>
+    </style>
+
     <!-- setting style -->
     <style name="AppTheme.Setting"></style>
     <style name="AppTheme.Setting.Item">
@@ -94,5 +116,16 @@
         <item name="android:padding">12dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/drawableWindowBackground</item>
+    </style>
+
+    <!--menu manage fragment style-->
+    <style name="AppTheme.ManageMenu"></style>
+    <style name="AppTheme.ManageMenu.Checkbox" tools:ignore="NewApi">
+        <item name="android:button">@null</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textSize">@dimen/super_small</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/manage_sub_menu_checkbox_checked_background</item>
     </style>
 </resources>

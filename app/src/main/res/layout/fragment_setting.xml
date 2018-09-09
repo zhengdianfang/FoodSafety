@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".setting.fragments.SettingFragment">
 
-    <include layout="@layout/navigation_bar_layout" />
+    <include layout="@layout/navigation_bar_dark_layout" />
 
     <ScrollView
         android:layout_width="match_parent"

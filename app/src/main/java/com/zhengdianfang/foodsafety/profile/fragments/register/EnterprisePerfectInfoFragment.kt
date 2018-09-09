@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.miracleframework.BaseFragment
-import kotlinx.android.synthetic.main.navigation_bar_layout.*
+import kotlinx.android.synthetic.main.navigation_bar_dark_layout.*
 
 class EnterprisePerfectInfoFragment: BaseFragment() {
 

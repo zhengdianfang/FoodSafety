@@ -11,7 +11,7 @@ import android.widget.Toast
 import com.zhengdianfang.foodsafety.R
 import com.zhengdianfang.miracleframework.BaseFragment
 import kotlinx.android.synthetic.main.find_password_fragment.*
-import kotlinx.android.synthetic.main.navigation_bar_layout.*
+import kotlinx.android.synthetic.main.navigation_bar_dark_layout.*
 import org.jetbrains.anko.support.v4.toast
 
 class FindPasswordFragment : BaseFragment() {

@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4
 import com.zhengdianfang.foodsafety.common.datasource.database.FoodSafetyDatabase
 import com.zhengdianfang.foodsafety.main.model.MainMenuItem
 import com.zhengdianfang.foodsafety.main.model.SubMenuItem
+import com.zhengdianfang.miracleframework.extension.getValueBlocking
 import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Before
@@ -41,7 +42,7 @@ class NavigationMenuDaoTest {
                 MainMenuItem(1,"menu1", "icon1")
         )
         navigationMenuDao.saveAllMainMenus(menus)
-        val menuItems = navigationMenuDao.getMenuItems().value
+        val menuItems = navigationMenuDao.getMenuItems().getValueBlocking()
         assertThat(menuItems?.count(), `is`(1))
         assertThat(menuItems?.get(0)?.id, `is`(1))
     }
@@ -58,7 +59,7 @@ class NavigationMenuDaoTest {
                 SubMenuItem(3, 1, "subMenu3", "icon3", false)
         )
         navigationMenuDao.saveAllSubMenus(subMenus)
-        val menuItems = navigationMenuDao.getMenuItems().value
+        val menuItems = navigationMenuDao.getMenuItems().getValueBlocking()
         assertThat(menuItems?.first()?.subMenuItems?.count(), `is`(3))
         assertThat(menuItems?.first()?.subMenuItems?.get(0), equalTo(
                 SubMenuItem(1, 1, "subMenu1", "icon1", true))
@@ -70,7 +71,7 @@ class NavigationMenuDaoTest {
         test_save_main_menus()
         val newMainMenu = MainMenuItem(1,"menu2", "icon2", false)
         navigationMenuDao.updateMainMenu(newMainMenu)
-        val menuItems = navigationMenuDao.getMenuItems().value
+        val menuItems = navigationMenuDao.getMenuItems().getValueBlocking()
         assertThat(menuItems?.count(), `is`(1))
         assertThat(menuItems?.first()?.name, `is`("menu2"))
         assertThat(menuItems?.first()?.enable, `is`(false))
@@ -81,7 +82,7 @@ class NavigationMenuDaoTest {
         test_save_sub_menus()
         val newSubMenu = SubMenuItem(1, 1,"menu2", "icon2", false)
         navigationMenuDao.updateSubMenu(newSubMenu)
-        val menuItems = navigationMenuDao.getMenuItems().value
+        val menuItems = navigationMenuDao.getMenuItems().getValueBlocking()
         assertThat(menuItems?.first()?.subMenuItems?.count(), `is`(3))
         assertThat(menuItems?.first()?.subMenuItems?.get(0)?.name, `is`("menu2"))
         assertThat(menuItems?.first()?.subMenuItems?.get(0)?.enable, `is`(false))

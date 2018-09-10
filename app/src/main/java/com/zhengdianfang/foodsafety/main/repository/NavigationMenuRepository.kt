@@ -1,6 +1,7 @@
 package com.zhengdianfang.foodsafety.main.repository
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.zhengdianfang.foodsafety.main.datasource.database.NavigationMenuDao
@@ -16,12 +17,12 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
     fun initialMenuItemsIfNotCache(@NotNull menusJson: String, @NotNull initialCallback: (menuItems: LiveData<List<MenuItem>>) -> Unit) {
         doAsync {
             var menuItemsLiveData = navigationMenuDao.getMenuItems()
-            if (menuItemsLiveData.value?.isEmpty() == true) {
+            if (menuItemsLiveData.value == null || menuItemsLiveData.value!!.isEmpty()) {
                 val gson = Gson()
                 val menuItems = gson.fromJson<List<MenuItem>>(menusJson, object : TypeToken<List<MenuItem>>() {}.type)
                 if (menuItems.isNotEmpty()) {
                     navigationMenuDao.saveAllMainMenus(
-                            menuItems.map { menuItem -> MainMenuItem(menuItem.id, menuItem.name, menuItem.icon) }
+                            menuItems.map { menuItem -> menuItem.createMainMenuItem() }
                     )
                     val subMenuItems = mutableListOf<SubMenuItem>()
                     menuItems.forEach { menuItem ->
@@ -31,7 +32,6 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
                     }
                     navigationMenuDao.saveAllSubMenus(subMenuItems.toList())
                 }
-                menuItemsLiveData= navigationMenuDao.getMenuItems()
             }
             initialCallback(menuItemsLiveData)
         }

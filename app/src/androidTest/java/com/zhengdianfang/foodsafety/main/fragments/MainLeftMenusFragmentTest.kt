@@ -35,7 +35,7 @@ class MainLeftMenusFragmentTest {
     @Test
     fun test_display_left_menu_fragment_when_user_right_gesture() {
 
-        onView(withText("创建企业")).check(matches(isDisplayed()))
+        onView(withText("食品生产")).check(matches(isDisplayed()))
         onView(withText("企业查询")).check(matches(isDisplayed()))
         onView(withText("标签管理")).check(matches(isDisplayed()))
         onView(withText("体系检查")).check(matches(isDisplayed()))
@@ -44,11 +44,10 @@ class MainLeftMenusFragmentTest {
 
     @Test
     fun test_display_left_menu_sub_menus_when_click_first_main_menu() {
-        onView(withText("创建企业")).perform(click())
+        onView(withText("食品生产")).perform(click())
         onView(withText("厂房新建流程")).check(matches(isDisplayed()))
         onView(withText("经营证件办理")).check(matches(isDisplayed()))
-        onView(withText("SC许可办理")).check(matches(isDisplayed()))
-        onView(withText("原辅料合规判定")).check(matches(isDisplayed()))
-
+        onView(withText("许可办理")).check(matches(isDisplayed()))
+        onView(withText("原辅料合规")).check(matches(isDisplayed()))
     }
 }

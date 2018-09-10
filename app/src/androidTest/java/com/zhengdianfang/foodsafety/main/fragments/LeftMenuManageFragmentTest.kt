@@ -73,4 +73,23 @@ class LeftMenuManageFragmentTest {
         onView(withId(R.id.gridStyleRadioButton)).
                 check(matches(BackgroundColorDrawableMatcher.withBackgroundColor(ContextCompat.getColor(mockLoginActivity.activity, R.color.colorPrimary))))
     }
+
+    @Test
+    fun test_display_left_menu_manage_fragment() {
+        Thread.sleep(2000)
+        onView(withText("食品生产")).check(matches(isDisplayed()))
+        onView(withText("企业查询")).check(matches(isDisplayed()))
+        onView(withText("标签管理")).check(matches(isDisplayed()))
+        onView(withText("体系检查")).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun test_display_left_menu_manage_sub_menus() {
+        Thread.sleep(2000)
+        onView(withText("食品生产")).perform(click())
+        onView(withText("厂房新建流程")).check(matches(isDisplayed()))
+        onView(withText("经营证件办理")).check(matches(isDisplayed()))
+        onView(withText("许可办理")).check(matches(isDisplayed()))
+        onView(withText("原辅料合规判定")).check(matches(isDisplayed()))
+    }
 }

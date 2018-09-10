@@ -20,7 +20,10 @@ interface NavigationMenuDao {
     fun saveAllSubMenus(items: List<SubMenuItem>)
 
     @Query("SELECT * FROM  MainMenuItem")
-    fun getMenuItems(): LiveData<List<MenuItem>>
+    fun getMenuItemsLiveData(): LiveData<List<MenuItem>>
+
+    @Query("SELECT * FROM  MainMenuItem")
+    fun getMenuItems(): List<MenuItem>
 
     @Update(onConflict = REPLACE)
     fun updateMainMenu(mainMenuItem: MainMenuItem)

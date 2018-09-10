@@ -16,8 +16,8 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
 
     fun initialMenuItemsIfNotCache(@NotNull menusJson: String, @NotNull initialCallback: (menuItems: LiveData<List<MenuItem>>) -> Unit) {
         doAsync {
-            var menuItemsLiveData = navigationMenuDao.getMenuItems()
-            if (menuItemsLiveData.value == null || menuItemsLiveData.value!!.isEmpty()) {
+            var menuItems = navigationMenuDao.getMenuItems()
+            if (menuItems.isEmpty()) {
                 val gson = Gson()
                 val menuItems = gson.fromJson<List<MenuItem>>(menusJson, object : TypeToken<List<MenuItem>>() {}.type)
                 if (menuItems.isNotEmpty()) {
@@ -33,7 +33,7 @@ class NavigationMenuRepository @Inject constructor(private val navigationMenuDao
                     navigationMenuDao.saveAllSubMenus(subMenuItems.toList())
                 }
             }
-            initialCallback(menuItemsLiveData)
+            initialCallback(navigationMenuDao.getMenuItemsLiveData())
         }
     }
 

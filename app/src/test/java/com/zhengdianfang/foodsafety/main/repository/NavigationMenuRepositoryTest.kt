@@ -93,11 +93,12 @@ class NavigationMenuRepositoryTest {
     @Test
     fun test_initial_navigation_menus_data_when_no_record_in_database() {
         val countDownLatch = CountDownLatch(1)
-        val mockResult = MutableLiveData<List<MenuItem>>()
+        val mockLiveData = MutableLiveData<List<MenuItem>>()
         val gson = Gson()
         val menuItems = gson.fromJson<List<MenuItem>>(mockJson, object : TypeToken<List<MenuItem>>() {}.type)
-        mockResult.value = listOf()
-        `when`(navigationMenuDao.getMenuItems()).thenReturn(mockResult)
+        mockLiveData.value = listOf()
+        `when`(navigationMenuDao.getMenuItems()).thenReturn(listOf())
+        `when`(navigationMenuDao.getMenuItemsLiveData()).thenReturn(mockLiveData)
         navigationMenuRepository.initialMenuItemsIfNotCache(mockJson) { liveData ->
             val items = liveData.getValueBlocking()
             if (items != null) {
@@ -113,9 +114,10 @@ class NavigationMenuRepositoryTest {
         val countDownLatch = CountDownLatch(1)
         val gson = Gson()
         val menuItems = gson.fromJson<List<MenuItem>>(mockJson, object : TypeToken<List<MenuItem>>() {}.type)
-        val mockResult = MutableLiveData<List<MenuItem>>()
-        mockResult.value = menuItems
-        `when`(navigationMenuDao.getMenuItems()).thenReturn(mockResult)
+        val mockLiveData = MutableLiveData<List<MenuItem>>()
+        mockLiveData.value = menuItems
+        `when`(navigationMenuDao.getMenuItems()).thenReturn(menuItems)
+        `when`(navigationMenuDao.getMenuItemsLiveData()).thenReturn(mockLiveData)
         navigationMenuRepository.initialMenuItemsIfNotCache(mockJson) { liveData ->
             val items = liveData.getValueBlocking()
             verify(navigationMenuDao, never()).saveAllMainMenus(items!!.map { MainMenuItem(it.id, it.name, it.icon) })

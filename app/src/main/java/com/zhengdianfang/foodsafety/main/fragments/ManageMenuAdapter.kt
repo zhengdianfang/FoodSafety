@@ -71,16 +71,21 @@ class ManageMenuAdapter(data: List<MultiItemEntity>?)
         )
         val menuEnableCheckBox = holder.getView<CheckBox>(R.id.menuEnableCheckBox)
         menuEnableCheckBox.isChecked = item.enable
+        setChekBoxBackgroundWithCheckStatus(menuEnableCheckBox, item.enable)
         menuEnableCheckBox.setOnCheckedChangeListener(SubMenuCheckBoxChangeListener(item))
+    }
+
+    private fun setChekBoxBackgroundWithCheckStatus(view: View, checked: Boolean) {
+        if (checked) {
+            view.setBackgroundResource(R.drawable.manage_sub_menu_checkbox_checked_background)
+        } else {
+            view.setBackgroundResource(R.drawable.manage_sub_menu_checkbox_unchecked_background)
+        }
     }
 
     private inner class SubMenuCheckBoxChangeListener(private val item: SubMenuItem): CompoundButton.OnCheckedChangeListener{
         override fun onCheckedChanged(compoundButton: CompoundButton, checked: Boolean) {
-            if (checked) {
-                compoundButton.setBackgroundResource(R.drawable.manage_sub_menu_checkbox_checked_background)
-            } else {
-                compoundButton.setBackgroundResource(R.drawable.manage_sub_menu_checkbox_unchecked_background)
-            }
+            setChekBoxBackgroundWithCheckStatus(compoundButton, checked)
             item.enable = checked
         }
     }
